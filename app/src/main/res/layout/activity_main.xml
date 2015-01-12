@@ -37,8 +37,8 @@
         android:text="IGV PERU"
         android:id="@+id/textView"
         android:textSize="26dp"
-        android:layout_marginBottom="44dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="40dp"
         android:layout_above="@+id/imageView"
         android:layout_centerHorizontal="true" />
 
