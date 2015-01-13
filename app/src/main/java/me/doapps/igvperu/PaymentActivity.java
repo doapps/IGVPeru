@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import me.doapps.model.OpenHelper;
 
-public class Payment_Schedule extends ActionBarActivity{
+public class PaymentActivity extends ActionBarActivity{
     EditText editTextRuc;
     Button buttonSearchRuc;
     OpenHelper ObjSqlite=new OpenHelper(this,"IGVPeru",null,3);
@@ -38,7 +38,7 @@ public class Payment_Schedule extends ActionBarActivity{
                     if(Ruc.length()==11){
                         Search(Ruc);
                     }else{
-                        Toast.makeText(Payment_Schedule.this,"Wrong Format!\nEnter again please!  ",Toast.LENGTH_LONG).show();
+                        Toast.makeText(PaymentActivity.this,"Wrong Format!\nEnter again please!  ",Toast.LENGTH_LONG).show();
                     }
                 }
             });

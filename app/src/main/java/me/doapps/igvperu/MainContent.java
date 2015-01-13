@@ -1,16 +1,38 @@
 package me.doapps.igvperu;
 
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
+import com.viewpagerindicator.TabPageIndicator;
+
+import me.doapps.adapters.TabAdapter;
+
 public class MainContent extends ActionBarActivity {
+
+    public ViewPager mPager;
+    private TabAdapter mAdapter;
+    private TabPageIndicator mIndicator;
+    private String[] TABS = {"CALCULADORA", "CRONOGRAMA"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_content);
+        setContentView(R.layout.activity_content);
+
+
+        mAdapter = new TabAdapter(getSupportFragmentManager());
+        mPager = (ViewPager) findViewById(R.id.pager);
+        mPager.setAdapter(mAdapter);
+
+        mIndicator = (TabPageIndicator) findViewById(R.id.indicator);
+        mIndicator.setViewPager(mPager);
 
     }
 
@@ -35,4 +57,5 @@ public class MainContent extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
