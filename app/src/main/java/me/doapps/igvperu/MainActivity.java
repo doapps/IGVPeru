@@ -19,7 +19,7 @@ public class MainActivity extends ActionBarActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, Cronograma_Pago.class);
+                Intent intent = new Intent(MainActivity.this, Payment_Schedule.class);
                 startActivity(intent);
                 finish();
             }
