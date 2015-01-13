@@ -1,36 +1,24 @@
 package me.doapps.igvperu;
 
-import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends ActionBarActivity {
+public class Cronograma_Pago extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splash);
-        getSupportActionBar().hide();
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(MainActivity.this, Cronograma_Pago.class);
-                startActivity(intent);
-                finish();
-            }
-        }, 2000);
-        //Toast.makeText(this,"HOLA MUNDO SPLASH",Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.activity_cronograma__pago);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_cronograma__pago, menu);
         return true;
     }
 

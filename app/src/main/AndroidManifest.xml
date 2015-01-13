@@ -21,8 +21,8 @@
             android:label="@string/title_activity_main_content" >
         </activity>
         <activity
-            android:name=".SplashActivity"
-            android:label="@string/title_activity_splash" >
+            android:name=".Cronograma_Pago"
+            android:label="@string/title_activity_cronograma__pago" >
         </activity>
     </application>
 
