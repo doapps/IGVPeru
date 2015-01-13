@@ -8,4 +8,6 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_cronograma__pago">Cronograma_Pago</string>
     <string name="ruc">RUC</string>
+    <string name="title_activity_payment__schedule">Payment_Schedule</string>
+
 </resources>

@@ -22,7 +22,7 @@
         </activity>
         <activity
             android:name=".Payment_Schedule"
-            android:label="@string/title_activity_cronograma__pago" >
+            android:label="@string/title_activity_payment__schedule" >
         </activity>
     </application>
 
