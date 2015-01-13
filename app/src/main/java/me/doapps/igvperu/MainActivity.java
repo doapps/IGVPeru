@@ -1,18 +1,30 @@
 package me.doapps.igvperu;
 
+import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity{
+public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.splash);
+        getSupportActionBar().hide();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(MainActivity.this, MainContent.class);
+                startActivity(intent);
+                finish();
+            }
+        }, 2000);
+        //Toast.makeText(this,"HOLA MUNDO SPLASH",Toast.LENGTH_SHORT).show();
     }
 
     @Override
