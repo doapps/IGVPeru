@@ -22,7 +22,7 @@ import me.doapps.model.OpenHelper;
 public class ScheduleFragment extends Fragment {
     EditText editTextRuc;
     Button buttonSearchRuc;
-    OpenHelper ObjSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 3);
+    OpenHelper objSqlite;
 
 
     public static final ScheduleFragment newInstance() {
@@ -42,6 +42,9 @@ public class ScheduleFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        objSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 1);
+        Log.e("count table", objSqlite.countTable()+"");
 
         try {
             String[] show;
@@ -74,7 +77,7 @@ public class ScheduleFragment extends Fragment {
         try {
             String[] show = null;
             if (!ruc.equals(" ")) {
-                Object[][] Result = ObjSqlite.Search("schedule", new String[]{"Period", "RegularPayment", "SpecialPayment"}, " lastNumRuc='" + ruc.charAt(10) + "' AND status=1");
+                Object[][] Result = objSqlite.Search("schedule", new String[]{"Period", "RegularPayment", "SpecialPayment"}, " lastNumRuc='" + ruc.charAt(10) + "' AND status=1");
                 if (Result != null) {
                     Toast.makeText(getActivity(), "i=0 j=0 => " + Result[0][0].toString(), Toast.LENGTH_LONG).show();
                     Toast.makeText(getActivity(), "i=0 j=1 => " + Result[0][1].toString(), Toast.LENGTH_LONG).show();

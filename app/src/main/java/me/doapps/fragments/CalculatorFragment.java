@@ -47,7 +47,7 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
- /*spinner*/
+        /*spinner*/
         spnIgv = (Spinner) getView().findViewById(R.id.spnIgv);
         igvs = new ArrayList<String>();
         igvs.add("18%");
