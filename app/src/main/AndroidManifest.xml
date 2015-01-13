@@ -24,6 +24,10 @@
             android:name=".Payment_Schedule"
             android:label="@string/title_activity_payment__schedule" >
         </activity>
+        <activity
+            android:name=".Calculator_Activity"
+            android:label="@string/title_activity_payment__schedule" >
+        </activity>
     </application>
 
 </manifest>
