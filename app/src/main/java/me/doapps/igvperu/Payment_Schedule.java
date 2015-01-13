@@ -51,7 +51,6 @@ public class Payment_Schedule extends ActionBarActivity{
     public String[] Search(String ruc){
         try {
             String[] show=null;
-            Log.d(null,"RUC"+ruc);
             if(!ruc.equals(" ")){
                 Object[][] Result=ObjSqlite.Search("schedule",new String[]{"Period","RegularPayment","SpecialPayment"}," lastNumRuc='"+ruc.charAt(10)+"' AND status=1");
                 if(Result!=null){
@@ -59,7 +58,7 @@ public class Payment_Schedule extends ActionBarActivity{
                     Toast.makeText(this,"i=0 j=1 => "+Result[0][1].toString(),Toast.LENGTH_LONG).show();
                     Toast.makeText(this,"i=0 j=2 => "+Result[0][2].toString(),Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(this,"Not Data",Toast.LENGTH_LONG).show();
+                    Toast.makeText(this,"Not Found!",Toast.LENGTH_LONG).show();
                 }
             }else{
                 show=new String[]{"SUNAT","RUC","-",
