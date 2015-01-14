@@ -13,6 +13,9 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import me.doapps.igvperu.R;
 import me.doapps.model.OpenHelper;
 
@@ -28,6 +31,7 @@ public class ScheduleFragment extends Fragment {
              abrrp,abrsp,mayrp,maysp,junrp,junsp,
              julrp,julsp,agorp,agosp,seprp,sepsp,
              octrp,octsp,novrp,novsp,dicrp,dicsp;
+    SimpleDateFormat sdf=new SimpleDateFormat("MM");
     TableRow f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12;
 
     public static final ScheduleFragment newInstance() {
@@ -52,6 +56,18 @@ public class ScheduleFragment extends Fragment {
         //Log.d("count table", objSqlite.countTable()+"");
 
         try {
+            f1=(TableRow)getView().findViewById(R.id.rowEne);
+            f2=(TableRow)getView().findViewById(R.id.rowFeb);
+            f3=(TableRow)getView().findViewById(R.id.rowMar);
+            f4=(TableRow)getView().findViewById(R.id.rowAbr);
+            f5=(TableRow)getView().findViewById(R.id.rowMay);
+            f6=(TableRow)getView().findViewById(R.id.rowJun);
+            f7=(TableRow)getView().findViewById(R.id.rowJul);
+            f8=(TableRow)getView().findViewById(R.id.rowAgo);
+            f9=(TableRow)getView().findViewById(R.id.rowSep);
+            f10=(TableRow)getView().findViewById(R.id.rowOct);
+            f11=(TableRow)getView().findViewById(R.id.rowNov);
+            f11=(TableRow)getView().findViewById(R.id.rowDic);
 
             RUC=(TextView) getView().findViewById(R.id.textViewSearchRuc);
             period01=(TextView) getView().findViewById(R.id.period01);
@@ -112,6 +128,63 @@ public class ScheduleFragment extends Fragment {
                     }
                 }
             });
+
+            String month=sdf.format(new Date());
+            if(month.equals("01")){
+                f1.setBackgroundColor(getResources().getColor(R.color.freesia));
+            }else{
+                if(month.equals("02")){
+                    f2.setBackgroundColor(getResources().getColor(R.color.freesia));
+                }else{
+                    if(month.equals("03")){
+                        f3.setBackgroundColor(getResources().getColor(R.color.freesia));
+                    }else{
+                        if(month.equals("04")){
+                            f4.setBackgroundColor(getResources().getColor(R.color.freesia));
+                        }else{
+                            if(month.equals("05")){
+                                f5.setBackgroundColor(getResources().getColor(R.color.freesia));
+                            }else{
+                                if(month.equals("06")){
+                                    f6.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                }else{
+                                    if(month.equals("07")){
+                                        f7.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                    }else{
+                                        if(month.equals("08")){
+                                            f8.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                        }else{
+                                            if(month.equals("09")){
+                                                f9.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                            }else{
+                                                if(month.equals("10")){
+                                                    f10.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                                }else{
+                                                    if(month.equals("11")){
+                                                        f11.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                                    }else{
+                                                        if(month.equals("12")){
+                                                            f12.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                                        }else{
+                                                            Log.e(null,"ERROR: Schedule focus");
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            //Toast.makeText(getActivity(),month,Toast.LENGTH_LONG).show();
+            /*
+            if(sdf.format(new Date())="M"){
+
+            }
+            */
         } catch (Exception e) {
             Log.e(null, "ERROR Payment_Schedule onCreate: " + e.getMessage());
         }
