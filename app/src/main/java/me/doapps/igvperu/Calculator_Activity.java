@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by Bryam on 13/01/2015.
  */
-public class Calculator_Activity extends ActionBarActivity implements OnClickListener, AdapterView.OnItemSelectedListener, TextWatcher {
+public class Calculator_Activity extends ActionBarActivity implements AdapterView.OnItemSelectedListener, TextWatcher {
 
     private Spinner spnIgv;
     private ArrayList<String> igvs;
@@ -46,23 +46,15 @@ public class Calculator_Activity extends ActionBarActivity implements OnClickLis
         spnIgv.setAdapter(dataAdapter);
         spnIgv.setOnItemSelectedListener(this);
 
-        /*buton*/
-        View boton = findViewById(R.id.bcal);
-        boton.setOnClickListener(this);
-
         pbase = (EditText)findViewById(R.id.pbase);
         pigv = (EditText)findViewById(R.id.pigv);
         ptotal = (EditText)findViewById(R.id.ptotal);
 
         pbase.addTextChangedListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
 
     }
 
-       @Override
+        @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
            igv = position;
        }
@@ -116,4 +108,6 @@ public class Calculator_Activity extends ActionBarActivity implements OnClickLis
             ptotal.setText("");
         }
     }
+
+
 }

@@ -34,7 +34,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:id="@+id/pbase"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:maxLength="7"
+                />
 
         </LinearLayout>
 
@@ -54,7 +56,7 @@
 
             <Spinner
                 android:textSize="17dp"
-                android:textColor="#ffffff"
+                android:textColor="@color/white"
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
@@ -86,7 +88,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/pigv"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:maxLength="7"
+                />
 
         </LinearLayout>
 
@@ -111,18 +115,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/ptotal"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal"
+                android:maxLength="7"
+                />
 
         </LinearLayout>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:text="CALCULAR"
-            android:background="#00CC33"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:id="@+id/bcal"/>
 
      </LinearLayout>
 
