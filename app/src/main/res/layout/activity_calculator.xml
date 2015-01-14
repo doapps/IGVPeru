@@ -3,9 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
-    android:background="#1E1E1C"
-
-
+    android:background="@color/placid_blue"
     >
 
     <LinearLayout
@@ -16,7 +14,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="80dp">
 
             <TextView
                 android:textSize="17dp"
@@ -25,17 +23,18 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="PRECIO BASE"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:background="@color/rojo_alizarin"/>
 
             <EditText
                 android:textSize="17dp"
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="#000000"
                 android:id="@+id/pbase"
                 android:inputType="numberDecimal"
-                android:maxLength="7"
+                android:maxLength="20"
                 />
 
         </LinearLayout>
@@ -43,7 +42,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="80dp">
 
             <TextView
                 android:textSize="17dp"
@@ -52,11 +51,11 @@
                 android:layout_weight="1.5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="IGV"/>
+                android:text="IGV"
+                android:background="@color/rojo_alizarin"/>
 
             <Spinner
                 android:textSize="17dp"
-                android:textColor="@color/white"
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
@@ -70,7 +69,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="80dp">
 
             <TextView
                 android:textSize="17dp"
@@ -79,17 +78,18 @@
                 android:layout_weight="1.5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="IGV"/>
+                android:text="IGV"
+                android:background="@color/rojo_alizarin"/>
 
             <EditText
                 android:textSize="17dp"
-                android:textColor="#ffffff"
+                android:textColor="#000000"
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/pigv"
                 android:inputType="numberDecimal"
-                android:maxLength="7"
+                android:maxLength="20"
                 />
 
         </LinearLayout>
@@ -97,7 +97,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="80dp"
+            >
 
             <TextView
                 android:textSize="17dp"
@@ -106,17 +107,18 @@
                 android:layout_weight="1.5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="PRECIO TOTAL"/>
+                android:text="PRECIO TOTAL"
+                android:background="@color/rojo_alizarin"/>
 
             <EditText
                 android:textSize="17dp"
-                android:textColor="#ffffff"
+                android:textColor="#000000"
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/ptotal"
                 android:inputType="numberDecimal"
-                android:maxLength="7"
+                android:maxLength="20"
                 />
 
         </LinearLayout>
