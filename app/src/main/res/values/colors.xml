@@ -2,6 +2,12 @@
 <resources>
     <color name="white">#FFFFFF</color>
 
+    <color name="fondo_gris">#2d2d2d</color>
+    <color name="paloma">#aab1b0</color>
+    <color name="placid_blue">#83b5dd</color>
+    <color name="cayenne">#e46764</color>
+    <color name="sand">#ceb48d</color>
+    <color name="freesia">#ffd600</color>
 
     <color name="verde_oscuro_turquoise">#1ABC9C</color>
     <color name="verde_oscuro_green_sea">#16A085</color>

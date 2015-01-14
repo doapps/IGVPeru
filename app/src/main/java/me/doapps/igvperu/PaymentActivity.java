@@ -3,11 +3,8 @@ package me.doapps.igvperu;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.Toast;
 
 import me.doapps.model.OpenHelper;
@@ -22,14 +19,14 @@ public class PaymentActivity extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment__schedule);
         try {
-            String[] show;
-            show=Search(" ");
-            ArrayAdapter<String> adapter;
-            adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,show);
-            GridView lv=(GridView)findViewById(R.id.gridViewResultado);
-            lv.setAdapter(adapter);
+            //ArrayAdapter<String> adapter;
+            //adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,show);
+            //GridView lv=(GridView)findViewById(R.id.gridViewResultado);
+           // lv.setAdapter(adapter);
             editTextRuc=(EditText)findViewById(R.id.editTextRuc);
             buttonSearchRuc=(Button)findViewById(R.id.buttonBuscarRuc);
+            //buttonSearchRuc.setText("HOLA");
+            /*
             buttonSearchRuc.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -42,6 +39,7 @@ public class PaymentActivity extends ActionBarActivity{
                     }
                 }
             });
+            */
         }catch (Exception e){
             Log.d(null,"ERROR Payment_Schedule onCreate: "+e.getMessage());
         }
@@ -60,13 +58,6 @@ public class PaymentActivity extends ActionBarActivity{
                 }else{
                     Toast.makeText(this,"Not Found!",Toast.LENGTH_LONG).show();
                 }
-            }else{
-                show=new String[]{"SUNAT","RUC","-",
-                        "MES","NORMAL","BUEN CONTRIBUYENTE",
-                        "ENERO","-","-","FEBRERO","-","-","MARZO","-","-",
-                        "ABRIL","-","-","MAYO","-","-","JUNIO","-","-",
-                        "JULIO","-","-","AGOSTO","-","-","SEPTIEMBRE","-","-",
-                        "OCTUBRE","-","-","NOVIEMBRE","-","-","DICIEMBRE","-","-"};
             }
             return show;
         }catch(Exception e){
