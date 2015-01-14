@@ -130,6 +130,7 @@ public class ScheduleFragment extends Fragment {
             });
 
             String month=sdf.format(new Date());
+
             if(month.equals("01")){
                 f1.setBackgroundColor(getResources().getColor(R.color.freesia));
             }else{
