@@ -4,7 +4,7 @@
     <string name="app_name">IGVPeru</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main_content">MainContent</string>
+    <string name="title_activity_main_content">IGVPeru</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_cronograma__pago">Cronograma_Pago</string>
     <string name="ruc">RUC</string>
