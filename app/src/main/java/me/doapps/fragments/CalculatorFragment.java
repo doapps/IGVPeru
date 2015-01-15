@@ -90,31 +90,19 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
 
                 if (s.length() > 0 && pbase.isFocused()) {
                     try{
-                    ptotal.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
-                    pigv.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
-                    String data1 = s.toString();
-                    int pos1 = data1.indexOf(".");
-                    if (pos1 != -1) {
-                        String Decimal1 = data1.substring(pos1 + 1, data1.length());//start of 1
-                        if (Decimal1.length() == 2) {
-                            pbase.setFilters(new InputFilter[]{new InputFilter.LengthFilter(data1.length())});
-                        }
-                        else {
-                            pbase.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+                    String data = s.toString();
+                    int pos = data.indexOf(".");//start of 0
+                    if (pos != -1) {
+                        String Decimal = data.substring(pos+1, data.length());//start of 1
+                        if(Decimal.length()>2){
+                            data=data.substring(0,data.length()-1);
+                            pbase.setText(data);
+                            pbase.setSelection(data.length());
                         }
                     }
 
-
-                    /*
-                    if(s.toString().equals(".")){
-                        temp_cadena_base = temp_cadena_base + s.toString();
-                        if(temp_cadena_base.length()==2){
-                            pbase.setNextFocusLeftId(2);
-                        }
-                    }
-                    */
-                    float preciobase = Float.valueOf(s.toString());
+                    float preciobase = Float.valueOf(pbase.getText().toString());//Float.valueOf(s.toString());
 
                     float temp_1;
                     float temp_2;
@@ -138,13 +126,12 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
                     pigv.setText(df.format(temp_1));
                     ptotal.setText(df.format(temp_2));
                 }catch (Exception e){
-                    Log.d(null,"string no cast to float");
+                    Log.d(null,"string no cast to float "+e.getMessage());
                 }
                 } else if (pbase.isFocused()) {
                     pigv.setText("");
                     ptotal.setText("");
                 }
-
             }
         });
 
@@ -165,23 +152,17 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
 
                 if (s.length() > 0 && pigv.isFocused()) {
                     try {
-                        ptotal.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
-                        pbase.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
-                        pigv.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
 
-                        String data2 = s.toString();
-                        int pos2 = data2.indexOf(".");
-                        if (pos2 != -1) {
-                            String Decimal2 = data2.substring(pos2 + 1, data2.length());//start of 1
-                            if (Decimal2.length() == 2) {
-                                pigv.setFilters(new InputFilter[]{new InputFilter.LengthFilter(data2.length())});
-                            }
-                            else {
-                                pigv.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
+                        String data = s.toString();
+                        int pos = data.indexOf(".");//start of 0
+                        if (pos != -1) {
+                            String Decimal = data.substring(pos + 1, data.length());//start of 1
+                            if(Decimal.length()>2){
+                                data=data.substring(0,data.length()-1);
+                                pigv.setText(data);
                             }
                         }
 
-                        if (s.length() > 0 && pigv.isFocused()) {
                             float precioigv = Float.valueOf(s.toString());
 
                             float temp_1;
@@ -205,9 +186,8 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
 
                             pbase.setText(df.format(temp_1));
                             ptotal.setText(df.format(temp_2));
-                        }
                     } catch (Exception e) {
-                        Log.d(null, "string no cast to float");
+                        Log.d(null, "string no cast to float "+e.getMessage());
                     }
                 }else if (pigv.isFocused()) {
                         pbase.setText("");
@@ -235,18 +215,14 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
 
                 if (s.length() > 0 && ptotal.isFocused()) {
                     try {
-                        pbase.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
-                        pigv.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
-
-                        String data3=s.toString();
-                        int pos3=data3.indexOf(".");
-                        if(pos3!=-1){
-                            String Decimal3=data3.substring(pos3+1,data3.length());//start of 1
-                            if(Decimal3.length()==2){
-                                ptotal.setFilters(new InputFilter[]{new InputFilter.LengthFilter(data3.length())});
+                        String data = s.toString();
+                        int pos = data.indexOf(".");//start of 0
+                        if (pos != -1) {
+                            String Decimal = data.substring(pos + 1, data.length());//start of 1
+                            if(Decimal.length()>2){
+                                data=data.substring(0,data.length()-1);
+                                ptotal.setText(data);
                             }
-                        }else{
-                            ptotal.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
                         }
 
                         float preciototal = Float.valueOf(s.toString());
