@@ -1,5 +1,6 @@
 package me.doapps.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ import me.doapps.model.OpenHelper;
  * Created by jonathan on 13/01/2015.
  */
 public class ScheduleFragment extends Fragment {
+    LinearLayout contentResult;
     EditText editTextRuc;
     Button buttonSearchRuc;
     OpenHelper objSqlite;
@@ -56,6 +59,9 @@ public class ScheduleFragment extends Fragment {
         //Log.d("count table", objSqlite.countTable()+"");
 
         try {
+            contentResult=(LinearLayout)getView().findViewById(R.id.contentResult);
+            contentResult.setVisibility(View.GONE);
+
             f1=(TableRow)getView().findViewById(R.id.rowEne);
             f2=(TableRow)getView().findViewById(R.id.rowFeb);
             f3=(TableRow)getView().findViewById(R.id.rowMar);
@@ -107,7 +113,8 @@ public class ScheduleFragment extends Fragment {
             dicrp=(TextView) getView().findViewById(R.id.dicrp);
             dicsp=(TextView) getView().findViewById(R.id.dicsp);
 
-            initSchedule();
+            //initSchedule();
+
             //String[] show;
             //show = Search(" ");
             //ArrayAdapter<String> adapter;
@@ -121,10 +128,12 @@ public class ScheduleFragment extends Fragment {
                 public void onClick(View v) {
                     String Ruc = editTextRuc.getText().toString();
                     if (Ruc.length() == 11) {
+                        contentResult.setVisibility(View.VISIBLE);
                         RUC.setText(Ruc);
                         Search(Ruc);
                     } else {
                         Toast.makeText(getActivity(), "Wrong Format!\nEnter again please!  ", Toast.LENGTH_LONG).show();
+                        contentResult.setVisibility(View.GONE);
                     }
                 }
             });
@@ -132,40 +141,40 @@ public class ScheduleFragment extends Fragment {
             String month=sdf.format(new Date());
 
             if(month.equals("01")){
-                f1.setBackgroundColor(getResources().getColor(R.color.freesia));
+                f1.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
             }else{
                 if(month.equals("02")){
-                    f2.setBackgroundColor(getResources().getColor(R.color.freesia));
+                    f2.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
                 }else{
                     if(month.equals("03")){
-                        f3.setBackgroundColor(getResources().getColor(R.color.freesia));
+                        f3.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
                     }else{
                         if(month.equals("04")){
-                            f4.setBackgroundColor(getResources().getColor(R.color.freesia));
+                            f4.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
                         }else{
                             if(month.equals("05")){
-                                f5.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                f5.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
                             }else{
                                 if(month.equals("06")){
-                                    f6.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                    f6.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
                                 }else{
                                     if(month.equals("07")){
-                                        f7.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                        f7.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
                                     }else{
                                         if(month.equals("08")){
-                                            f8.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                            f8.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
                                         }else{
                                             if(month.equals("09")){
-                                                f9.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                                f9.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
                                             }else{
                                                 if(month.equals("10")){
-                                                    f10.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                                    f10.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
                                                 }else{
                                                     if(month.equals("11")){
-                                                        f11.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                                        f11.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
                                                     }else{
                                                         if(month.equals("12")){
-                                                            f12.setBackgroundColor(getResources().getColor(R.color.freesia));
+                                                            f12.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
                                                         }else{
                                                             Log.e(null,"ERROR: Schedule focus");
                                                         }
@@ -190,7 +199,7 @@ public class ScheduleFragment extends Fragment {
             Log.e(null, "ERROR Payment_Schedule onCreate: " + e.getMessage());
         }
     }
-
+/*
     public void initSchedule(){
         String[] periods=objSqlite.getPeriods();
         period01.setText(periods[0]);
@@ -206,7 +215,7 @@ public class ScheduleFragment extends Fragment {
         period11.setText(periods[10]);
         period12.setText(periods[11]);
     }
-
+*/
     public String[] Search(String ruc) {
         try {
             String[] show = null;
@@ -225,6 +234,19 @@ public class ScheduleFragment extends Fragment {
                     period10.setText(Result[9][0].toString());
                     period11.setText(Result[10][0].toString());
                     period12.setText(Result[11][0].toString());
+                    //getResources().getColor(R.color.deep_orange_800
+                    period01.setTextColor(Color.WHITE);
+                    period02.setTextColor(Color.WHITE);
+                    period03.setTextColor(Color.WHITE);
+                    period04.setTextColor(Color.WHITE);
+                    period05.setTextColor(Color.WHITE);
+                    period06.setTextColor(Color.WHITE);
+                    period07.setTextColor(Color.WHITE);
+                    period08.setTextColor(Color.WHITE);
+                    period09.setTextColor(Color.WHITE);
+                    period10.setTextColor(Color.WHITE);
+                    period11.setTextColor(Color.WHITE);
+                    period12.setTextColor(Color.WHITE);
 
                     enerp.setText(Result[0][1].toString());
                     enesp.setText(Result[0][2].toString());
@@ -250,6 +272,31 @@ public class ScheduleFragment extends Fragment {
                     novsp.setText(Result[10][2].toString());
                     dicrp.setText(Result[11][1].toString());
                     dicsp.setText(Result[11][2].toString());
+
+                    enerp.setTextColor(Color.WHITE);
+                    enesp.setTextColor(Color.WHITE);
+                    febrp.setTextColor(Color.WHITE);
+                    febsp.setTextColor(Color.WHITE);
+                    marrp.setTextColor(Color.WHITE);
+                    marsp.setTextColor(Color.WHITE);
+                    abrrp.setTextColor(Color.WHITE);
+                    abrsp.setTextColor(Color.WHITE);
+                    mayrp.setTextColor(Color.WHITE);
+                    maysp.setTextColor(Color.WHITE);
+                    junrp.setTextColor(Color.WHITE);
+                    junsp.setTextColor(Color.WHITE);
+                    julrp.setTextColor(Color.WHITE);
+                    julsp.setTextColor(Color.WHITE);
+                    agorp.setTextColor(Color.WHITE);
+                    agosp.setTextColor(Color.WHITE);
+                    seprp.setTextColor(Color.WHITE);
+                    sepsp.setTextColor(Color.WHITE);
+                    octrp.setTextColor(Color.WHITE);
+                    octsp.setTextColor(Color.WHITE);
+                    novrp.setTextColor(Color.WHITE);
+                    novsp.setTextColor(Color.WHITE);
+                    dicrp.setTextColor(Color.WHITE);
+                    dicsp.setTextColor(Color.WHITE);
                 } else {
                     Toast.makeText(getActivity(), "Not Found!", Toast.LENGTH_LONG).show();
                 }

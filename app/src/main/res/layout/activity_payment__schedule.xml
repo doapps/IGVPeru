@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@color/placid_blue"
+    android:background="@color/teal_500"
     tools:context="me.doapps.igvperu.PaymentActivity">
 
     <ScrollView
@@ -27,7 +27,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:gravity="center"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:textColor="@color/white"/>
 
             </LinearLayout>
 
@@ -36,65 +37,68 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textViewLabelRuc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:layout_weight="1"
-                    android:text="RUC:"
-                    android:gravity="center"/>
-
                 <EditText
                     android:id="@+id/editTextRuc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:hint="Type here..."
+                    android:layout_weight="1"
+                    android:hint="RUC"
                     android:inputType="number"
                     android:gravity="center"
                     android:autoText="false"
                     android:editable="false"
-                    android:maxLength="11" />
-
-                <Button
-                    android:id="@+id/buttonBuscarRuc"
-                    android:drawableRight="@drawable/busqueda32"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:layout_weight="2"
-                    android:text="SEARCH  "
-                    android:gravity="center"
-                    android:background="@drawable/selector_btn_red"/>
+                    android:maxLength="11"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginLeft="40dp"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="Payment Schedule"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_weight="1"/>
+                    <Button
+                        android:id="@+id/buttonBuscarRuc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:background="@drawable/selector_btn_red"
+                        android:text="BUSCAR"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginLeft="40dp"/>
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/contentResult"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:gravity="center_horizontal">
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:text="CRONOGRAMA DE PAGO"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textColor="@color/white"/>
+
+                    </TableRow>
                     <TableRow
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
@@ -105,7 +109,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Search RUC:"
-                            android:gravity="center"/>
+                            android:gravity="center"
+                            android:textColor="@color/white"/>
 
                         <TextView
                             android:id="@+id/textViewSearchRuc"
@@ -113,7 +118,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="none"
-                            android:gravity="center"/>
+                            android:gravity="center"
+                            android:textColor="@color/white"/>
 
                     </TableRow>
 
@@ -127,21 +133,24 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Period"
-                            android:gravity="center"/>
+                            android:gravity="center"
+                            android:textColor="@color/white"/>
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Regular Payment"
-                            android:gravity="center"/>
+                            android:gravity="center"
+                            android:textColor="@color/white"/>
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Special Payment"
-                            android:gravity="center"/>
+                            android:gravity="center"
+                            android:textColor="@color/white"/>
 
                     </TableRow>
 

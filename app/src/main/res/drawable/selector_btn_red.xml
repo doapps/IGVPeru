@@ -8,15 +8,17 @@
             <item>
                 <shape android:shape="rectangle">
                     <corners android:radius="10dp" />
-                    <solid android:color="@color/cayenne" />
+                    <solid android:color="@color/deep_orange_800" />
                 </shape>
             </item>
+            <!--
             <item android:bottom="5dp">
                 <shape android:shape="rectangle">
                     <corners android:radius="10dp" />
                     <solid android:color="@color/rojo_alizarin" />
                 </shape>
             </item>
+            -->
         </layer-list>
     </item>
 
@@ -26,15 +28,17 @@
             <item>
                 <shape android:shape="rectangle">
                     <corners android:radius="10dp" />
-                    <solid android:color="@color/cayenne" />
+                    <solid android:color="@color/deep_orange_900" />
                 </shape>
             </item>
+            <!--
             <item android:bottom="3dp">
                 <shape android:shape="rectangle">
                     <corners android:radius="10dp" />
-                    <solid android:color="@color/rojo_alizarin" />
+                    <solid android:color="@color/deep_orange_900" />
                 </shape>
             </item>
+            -->
         </layer-list>
     </item>
 </selector>
