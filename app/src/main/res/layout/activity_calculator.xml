@@ -22,7 +22,7 @@
                 android:layout_weight="1.5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="PRECIO BASE"
+                android:text="SUB TOTAL"
                 android:textColor="@color/white"
                 android:background="@color/rojo_fuerte_2"/>
 
@@ -51,7 +51,7 @@
                 android:layout_weight="1.5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="IGV"
+                android:text="% IGV"
                 android:background="@color/rojo_fuerte_1"/>
 
             <Spinner
@@ -107,7 +107,7 @@
                 android:layout_weight="1.5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="PRECIO TOTAL"
+                android:text="TOTAL"
                 android:background="@color/rojo_fuerte_1"/>
 
             <EditText
