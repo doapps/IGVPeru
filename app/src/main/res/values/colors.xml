@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="teal_300">#4DB6AC</color>
+    <color name="teal_500">#009688</color>
+    <color name="lime_500">#CDDC39</color>
+    <color name="lime_300">#DCE775</color>
+    <color name="deep_orange_200">#FFAB91</color>
+    <color name="deep_orange_500">#FF5722</color>
+    <color name="deep_orange_800">#D84315</color>
+    <color name="deep_orange_900">#BF360C</color>
 
     <color name="fondo_gris">#2d2d2d</color>
     <color name="paloma">#aab1b0</color>
