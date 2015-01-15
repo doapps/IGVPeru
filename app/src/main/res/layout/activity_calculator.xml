@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
-    android:background="@color/placid_blue"
+    android:background="@color/teal"
     >
 
     <LinearLayout
@@ -24,14 +24,14 @@
                 android:layout_height="match_parent"
                 android:text="PRECIO BASE"
                 android:textColor="@color/white"
-                android:background="@color/rojo_alizarin"/>
+                android:background="@color/rojo_fuerte_2"/>
 
             <EditText
                 android:textSize="17dp"
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
+                android:textColor="@color/white"
                 android:id="@+id/pbase"
                 android:inputType="numberDecimal"
                 android:maxLength="20"
@@ -52,7 +52,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="IGV"
-                android:background="@color/rojo_alizarin"/>
+                android:background="@color/rojo_fuerte_1"/>
 
             <Spinner
                 android:textSize="17dp"
@@ -79,11 +79,11 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="IGV"
-                android:background="@color/rojo_alizarin"/>
+                android:background="@color/rojo_fuerte_2"/>
 
             <EditText
                 android:textSize="17dp"
-                android:textColor="#000000"
+                android:textColor="@color/white"
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -108,11 +108,11 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="PRECIO TOTAL"
-                android:background="@color/rojo_alizarin"/>
+                android:background="@color/rojo_fuerte_1"/>
 
             <EditText
                 android:textSize="17dp"
-                android:textColor="#000000"
+                android:textColor="@color/white"
                 android:layout_weight="2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

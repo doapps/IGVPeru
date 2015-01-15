@@ -24,6 +24,13 @@
     <color name="cayenne">#e46764</color>
     <color name="sand">#ceb48d</color>
     <color name="freesia">#ffd600</color>
+    <color name="limon">#CDDC39</color>
+    <color name="limon_claro">#DCE775</color>
+    <color name="rojo_fuerte_1">#C62828</color>
+    <color name="rojo_fuerte_2">#B71C1C</color>
+    <color name="teal">#009688</color>
+    <color name="limon_claro_1">#CDDC39</color>
+
 
     <color name="verde_oscuro_turquoise">#1ABC9C</color>
     <color name="verde_oscuro_green_sea">#16A085</color>
