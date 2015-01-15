@@ -51,8 +51,7 @@
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:layout_marginRight="40dp"
-                    android:layout_marginLeft="40dp"
-                    />
+                    android:layout_marginLeft="40dp"/>
 
             </LinearLayout>
 
@@ -70,7 +69,7 @@
                         android:gravity="center"
                         android:background="@drawable/selector_btn_red"
                         android:text="BUSCAR"
-                        android:textColor="@color/deep_orange_200"
+                        android:textColor="@color/white"
                         android:layout_marginRight="40dp"
                         android:layout_marginLeft="40dp"/>
 
