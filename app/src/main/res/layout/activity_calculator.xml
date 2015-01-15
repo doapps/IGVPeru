@@ -35,6 +35,7 @@
                 android:id="@+id/pbase"
                 android:inputType="numberDecimal"
                 android:maxLength="20"
+                android:layout_marginLeft="30dp"
                 />
 
         </LinearLayout>
@@ -60,9 +61,8 @@
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:id="@+id/spnIgv"
-
-
-            />
+                android:layout_marginLeft="30dp"
+                />
 
         </LinearLayout>
 
@@ -90,6 +90,9 @@
                 android:id="@+id/pigv"
                 android:inputType="numberDecimal"
                 android:maxLength="20"
+                android:paddingLeft="20dp"
+                android:layout_marginLeft="30dp"
+
                 />
 
         </LinearLayout>
@@ -119,6 +122,9 @@
                 android:id="@+id/ptotal"
                 android:inputType="numberDecimal"
                 android:maxLength="20"
+                android:paddingRight="20dp"
+                android:layout_marginLeft="30dp"
+
                 />
             <ImageView
                 android:layout_width="wrap_content"
