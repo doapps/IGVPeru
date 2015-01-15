@@ -133,7 +133,7 @@ public class ScheduleFragment extends Fragment {
                         RUC.setText(Ruc);
                         Search(Ruc);
                     } else {
-                        Toast.makeText(getActivity(), "Wrong Format!\nEnter again please!  ", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "FORMATO INCORRECTO!", Toast.LENGTH_LONG).show();
                         contentResult.setVisibility(View.GONE);
                     }
                 }
