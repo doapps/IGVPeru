@@ -121,6 +121,7 @@ public class ScheduleFragment extends Fragment {
             //adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, show);
             //lv.setAdapter(adapter);
             editTextRuc = (EditText) getView().findViewById(R.id.editTextRuc);
+
             buttonSearchRuc = (Button) getView().findViewById(R.id.buttonBuscarRuc);
             buttonSearchRuc.setOnClickListener(new View.OnClickListener() {
 
@@ -141,40 +142,40 @@ public class ScheduleFragment extends Fragment {
             String month=sdf.format(new Date());
 
             if(month.equals("01")){
-                f1.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                f1.setBackgroundColor(getResources().getColor(R.color.red_800));
             }else{
                 if(month.equals("02")){
-                    f2.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                    f2.setBackgroundColor(getResources().getColor(R.color.red_800));
                 }else{
                     if(month.equals("03")){
-                        f3.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                        f3.setBackgroundColor(getResources().getColor(R.color.red_800));
                     }else{
                         if(month.equals("04")){
-                            f4.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                            f4.setBackgroundColor(getResources().getColor(R.color.red_800));
                         }else{
                             if(month.equals("05")){
-                                f5.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                                f5.setBackgroundColor(getResources().getColor(R.color.red_800));
                             }else{
                                 if(month.equals("06")){
-                                    f6.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                                    f6.setBackgroundColor(getResources().getColor(R.color.red_800));
                                 }else{
                                     if(month.equals("07")){
-                                        f7.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                                        f7.setBackgroundColor(getResources().getColor(R.color.red_800));
                                     }else{
                                         if(month.equals("08")){
-                                            f8.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                                            f8.setBackgroundColor(getResources().getColor(R.color.red_800));
                                         }else{
                                             if(month.equals("09")){
-                                                f9.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                                                f9.setBackgroundColor(getResources().getColor(R.color.red_800));
                                             }else{
                                                 if(month.equals("10")){
-                                                    f10.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                                                    f10.setBackgroundColor(getResources().getColor(R.color.red_800));
                                                 }else{
                                                     if(month.equals("11")){
-                                                        f11.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                                                        f11.setBackgroundColor(getResources().getColor(R.color.red_800));
                                                     }else{
                                                         if(month.equals("12")){
-                                                            f12.setBackgroundColor(getResources().getColor(R.color.deep_orange_800));
+                                                            f12.setBackgroundColor(getResources().getColor(R.color.red_800));
                                                         }else{
                                                             Log.e(null,"ERROR: Schedule focus");
                                                         }

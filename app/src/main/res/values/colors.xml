@@ -4,6 +4,7 @@
     <color name="white">#FFFFFF</color>
 
     <color name="teal_300">#4DB6AC</color>
+    <color name="teal_200">#80CBC4</color>
     <color name="teal_500">#009688</color>
     <color name="lime_500">#CDDC39</color>
     <color name="lime_300">#DCE775</color>
@@ -11,6 +12,11 @@
     <color name="deep_orange_500">#FF5722</color>
     <color name="deep_orange_800">#D84315</color>
     <color name="deep_orange_900">#BF360C</color>
+
+    <color name="red_200">#EF9A9A</color>
+    <color name="red_500">#F44336</color>
+    <color name="red_800">#C62828</color>
+    <color name="red_900">#B71C1C</color>
 
     <color name="fondo_gris">#2d2d2d</color>
     <color name="paloma">#aab1b0</color>
