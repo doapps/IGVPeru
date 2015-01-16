@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 
 import com.viewpagerindicator.TabPageIndicator;
+import com.viewpagerindicator.TitlePageIndicator;
 
 import me.doapps.adapters.TabAdapter;
 
@@ -20,7 +21,7 @@ public class MainContent extends ActionBarActivity {
 
     public ViewPager mPager;
     private TabAdapter mAdapter;
-    private TabPageIndicator mIndicator;
+    private TitlePageIndicator mIndicator;
     private String[] TABS = {"CALCULADORA", "CRONOGRAMA"};
 
     @Override
@@ -33,7 +34,7 @@ public class MainContent extends ActionBarActivity {
         mPager = (ViewPager) findViewById(R.id.pager);
         mPager.setAdapter(mAdapter);
 
-        mIndicator = (TabPageIndicator) findViewById(R.id.indicator);
+        mIndicator = (TitlePageIndicator) findViewById(R.id.indicator);
         mIndicator.setViewPager(mPager);
 
     }

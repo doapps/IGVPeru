@@ -4,13 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.viewpagerindicator.TabPageIndicator
+    <com.viewpagerindicator.TitlePageIndicator
         android:id="@+id/indicator"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:singleLine="true"
+        android:singleLine="true"></com.viewpagerindicator.TitlePageIndicator>
+        <!--
         android:textColor="@color/verde_claro_emerald"
         />
+        -->
+
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"

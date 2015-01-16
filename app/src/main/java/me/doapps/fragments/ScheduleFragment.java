@@ -137,7 +137,7 @@ public class ScheduleFragment extends Fragment {
                         InputMethodManager inputMethodManager = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                         inputMethodManager.hideSoftInputFromWindow(editTextRuc.getWindowToken(), 0);
                     } else {
-                        Toast.makeText(getActivity(), "FORMATO INCORRECTO!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "Formato incorrecto!!", Toast.LENGTH_LONG).show();
                         contentResult.setVisibility(View.GONE);
                     }
                 }

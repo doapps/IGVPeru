@@ -8,57 +8,10 @@
     <color name="teal_500">#009688</color>
     <color name="lime_500">#CDDC39</color>
     <color name="lime_300">#DCE775</color>
-    <color name="deep_orange_200">#FFAB91</color>
-    <color name="deep_orange_500">#FF5722</color>
-    <color name="deep_orange_800">#D84315</color>
-    <color name="deep_orange_900">#BF360C</color>
 
     <color name="red_200">#EF9A9A</color>
     <color name="red_500">#F44336</color>
     <color name="red_800">#C62828</color>
     <color name="red_900">#B71C1C</color>
 
-    <color name="fondo_gris">#2d2d2d</color>
-    <color name="paloma">#aab1b0</color>
-    <color name="placid_blue">#83b5dd</color>
-    <color name="cayenne">#e46764</color>
-    <color name="sand">#ceb48d</color>
-    <color name="freesia">#ffd600</color>
-    <color name="limon">#CDDC39</color>
-    <color name="limon_claro">#DCE775</color>
-    <color name="rojo_fuerte_1">#C62828</color>
-    <color name="rojo_fuerte_2">#B71C1C</color>
-    <color name="teal">#009688</color>
-    <color name="limon_claro_1">#CDDC39</color>
-
-
-    <color name="verde_oscuro_turquoise">#1ABC9C</color>
-    <color name="verde_oscuro_green_sea">#16A085</color>
-
-    <color name="verde_claro_emerald">#007F4A</color>
-    <color name="verde_claro_nephritis">#11b971</color>
-
-    <color name="azul_claro_peter_river">#3498DB</color>
-    <color name="azul_claro_belize_hole">#2980B9</color>
-
-    <color name="morado_amethyst">#9B59B6</color>
-    <color name="morado_wisteria">#8E44AD</color>
-
-    <color name="azul_oscuro_wet_asphalt">#34495E</color>
-    <color name="azul_oscuro_midnight_blue">#2C3E50</color>
-
-    <color name="amarillo_sun_flower">#F1C40F</color>
-    <color name="amarillo_orange">#F39C12</color>
-
-    <color name="naranja_carrot">#E67E22</color>
-    <color name="naranja_pumpkin">#D35400</color>
-
-    <color name="rojo_alizarin">#E74C3C</color>
-    <color name="rojo_pomegranate">#C0392B</color>
-
-    <color name="plomo_claro_clouds">#ECF0F1</color>
-    <color name="plomo_claro_silver">#BDC3C7</color>
-
-    <color name="plomo_oscuro_concrete">#95A5A6</color>
-    <color name="plomo_oscuro_asbestos">#7F8C8D</color>
 </resources>

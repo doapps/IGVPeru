@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
-    android:background="@color/teal"
+    android:background="@color/teal_500"
     >
 
     <LinearLayout
@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
-                android:background="@color/rojo_fuerte_2">
+                android:background="@color/red_900">
 
                 <TextView
                     android:textSize="17dp"
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
-                android:background="@color/rojo_fuerte_1"
+                android:background="@color/red_800"
                 >
 
                 <TextView
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
-                android:background="@color/rojo_fuerte_2">
+                android:background="@color/red_900">
 
                 <TextView
                     android:textSize="17dp"
