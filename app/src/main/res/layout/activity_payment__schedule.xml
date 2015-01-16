@@ -11,23 +11,7 @@
             android:layout_marginBottom="20dp">
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp">
-
-                <TextView android:text="@string/app_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:textColor="@color/white"/>
-
-            </LinearLayout>
-
-            <LinearLayout
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -37,7 +21,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="RUC"
+                    android:hint="@string/ruc"
                     android:inputType="number"
                     android:gravity="center"
                     android:autoText="false"
@@ -66,7 +50,7 @@
                         android:layout_weight="2"
                         android:gravity="center"
                         android:background="@drawable/selector_btn_red"
-                        android:text="BUSCAR"
+                        android:text="@string/buscar"
                         android:textColor="@color/white"
                         android:layout_marginRight="40dp"
                         android:layout_marginLeft="40dp"/>
@@ -91,7 +75,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="18sp"
-                            android:text="CRONOGRAMA DE PAGO"
+                            android:text="@string/cronograma_pago"
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:textColor="@color/white"/>
@@ -106,7 +90,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Search RUC:"
+                            android:text="@string/search_ruc"
                             android:gravity="center"
                             android:textColor="@color/white"/>
 
@@ -130,7 +114,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Period"
+                            android:text="@string/period"
                             android:gravity="center"
                             android:textColor="@color/white"/>
 
@@ -138,7 +122,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Regular Payment"
+                            android:text="@string/regular_date"
                             android:gravity="center"
                             android:textColor="@color/white"/>
 
@@ -146,7 +130,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Special Payment"
+                            android:text="@string/special_date"
                             android:gravity="center"
                             android:textColor="@color/white"/>
 

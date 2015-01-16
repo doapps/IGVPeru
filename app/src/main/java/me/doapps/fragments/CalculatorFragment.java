@@ -1,5 +1,7 @@
 package me.doapps.fragments;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,7 +21,11 @@ import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import javax.crypto.Cipher;
+
+import me.doapps.igvperu.MainContent;
 import me.doapps.igvperu.R;
+import me.doapps.model.ArrayAdapterSpinner;
 
 /**
  * Created by jonathan on 13/01/2015.
@@ -59,15 +65,20 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
         igvs.add("18%");
         igvs.add("19%");
 
+        String[] igvs2=new String[]{"18%","19%"};
+
+        //ArrayAdapterSpinner dataAdapter = new ArrayAdapterSpinner<CharSequence>(getActivity(),igvs2);
+
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, igvs);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //dataAdapter.setDropDownViewResource(R.layout.item_spinner);
+
         spnIgv.setAdapter(dataAdapter);
         spnIgv.setOnItemSelectedListener(this);
 
         pbase = (EditText) getView().findViewById(R.id.pbase);
         pigv = (EditText) getView().findViewById(R.id.pigv);
         ptotal = (EditText) getView().findViewById(R.id.ptotal);
-
 
         /*PRECIO BASE*/
         pbase.addTextChangedListener(new TextWatcher() {
