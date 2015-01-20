@@ -78,7 +78,10 @@
                             android:text="@string/cronograma_pago"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:textColor="@color/white"/>
+                            android:textColor="@color/white"
+                            android:id="@+id/txt_cronograma"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"/>
 
                     </TableRow>
                     <TableRow
@@ -92,7 +95,10 @@
                             android:layout_weight="1"
                             android:text="@string/search_ruc"
                             android:gravity="center"
-                            android:textColor="@color/white"/>
+                            android:textColor="@color/white"
+                            android:id="@+id/txt_ruc_buscado"
+                            android:textSize="15sp"
+                            android:layout_marginBottom="10dp"/>
 
                         <TextView
                             android:id="@+id/textViewSearchRuc"
@@ -101,7 +107,10 @@
                             android:layout_weight="1"
                             android:text="none"
                             android:gravity="center"
-                            android:textColor="@color/white"/>
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:layout_marginBottom="10dp"
+                            />
 
                     </TableRow>
 
@@ -116,7 +125,10 @@
                             android:layout_weight="1"
                             android:text="@string/period"
                             android:gravity="center"
-                            android:textColor="@color/white"/>
+                            android:textColor="@color/white"
+                            android:id="@+id/txt_periodo"
+                            android:textSize="15sp"
+                            android:layout_marginBottom="8dp"/>
 
                         <TextView
                             android:layout_width="0dp"
@@ -124,15 +136,21 @@
                             android:layout_weight="1"
                             android:text="@string/regular_date"
                             android:gravity="center"
-                            android:textColor="@color/white"/>
+                            android:textColor="@color/white"
+                            android:id="@+id/txt_fecha_regular"
+                            android:textSize="15sp"
+                            android:layout_marginBottom="8dp"/>
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="@string/special_date"
+                            android:text="Fecha Especial"
                             android:gravity="center"
-                            android:textColor="@color/white"/>
+                            android:textColor="@color/white"
+                            android:id="@+id/txt_fecha_especial"
+                            android:textSize="15sp"
+                            android:layout_marginBottom="8dp"/>
 
                     </TableRow>
 
@@ -148,7 +166,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="none"
-                        android:gravity="center"/>
+                        android:gravity="center"
+
+                        />
 
                     <TextView
                         android:id="@+id/enerp"

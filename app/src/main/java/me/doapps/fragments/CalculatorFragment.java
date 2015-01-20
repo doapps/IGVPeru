@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import me.doapps.igvperu.R;
+import me.doapps.utils.UtilFonts;
 
 /**
  * Created by jonathan on 13/01/2015.
@@ -38,10 +39,6 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
     private TextView txt_sub_total;
     private TextView txt_igv;
     private TextView txt_total;
-
-    /*test*/
-    private Button btnTest;
-    private LinearLayout linearTest;
 
     DecimalFormatSymbols simbolos = DecimalFormatSymbols.getInstance(Locale.ENGLISH);
     DecimalFormat df = new DecimalFormat("0.00", simbolos);
@@ -64,22 +61,15 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        /*test*/
-        btnTest = (Button)getView().findViewById(R.id.btnTest);
-        linearTest = (LinearLayout)getView().findViewById(R.id.linearTest);
+        /*textview*/
 
-        btnTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AnalogClock analogClock = new AnalogClock(getActivity());
-                linearTest.addView(analogClock);
-            }
-        });
-
-        //
         txt_sub_total = (TextView) getView().findViewById(R.id.txt_sub_total);
         txt_igv = (TextView) getView().findViewById(R.id.txt_igv);
         txt_total = (TextView) getView().findViewById(R.id.txt_total);
+
+        txt_sub_total.setTypeface(UtilFonts.setLatoBolt(getActivity()));
+        txt_igv.setTypeface(UtilFonts.setLatoBolt(getActivity()));
+        txt_total.setTypeface(UtilFonts.setLatoBolt(getActivity()));
 
         /*spinner*/
         spnIgv = (Spinner) getView().findViewById(R.id.spnIgv);
@@ -87,7 +77,8 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
         igvs.add("18%");
         igvs.add("19%");
 
-        String[] igvs2 = new String[]{"18%", "19%"};
+        String[] igvs = new String[]{"18%", "19%"};
+
 
         //ArrayAdapterSpinner dataAdapter = new ArrayAdapterSpinner<CharSequence>(getActivity(),igvs2);
 

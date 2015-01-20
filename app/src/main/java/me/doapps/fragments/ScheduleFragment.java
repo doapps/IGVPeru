@@ -22,6 +22,7 @@ import java.util.Date;
 
 import me.doapps.igvperu.R;
 import me.doapps.model.OpenHelper;
+import me.doapps.utils.UtilFonts;
 
 /**
  * Created by jonathan on 13/01/2015.
@@ -38,6 +39,13 @@ public class ScheduleFragment extends Fragment {
              octrp,octsp,novrp,novsp,dicrp,dicsp;
     SimpleDateFormat sdf=new SimpleDateFormat("MM");
     TableRow f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12;
+
+    private TextView txt_cronograma;
+    private TextView txt_ruc_buscado;
+    private TextView txt_ruc_mostrado;
+    private TextView txt_periodo;
+    private TextView txt_fecha_regular;
+    private TextView txt_fecha_especial;
 
     public static final ScheduleFragment newInstance() {
         return new ScheduleFragment();
@@ -56,6 +64,22 @@ public class ScheduleFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        /*textview*/
+
+        txt_cronograma = (TextView) getView().findViewById(R.id.txt_cronograma);
+        txt_ruc_buscado = (TextView) getView().findViewById(R.id.txt_ruc_buscado);
+        txt_ruc_mostrado = (TextView) getView().findViewById(R.id.textViewSearchRuc);
+        txt_periodo = (TextView) getView().findViewById(R.id.txt_periodo);
+        txt_fecha_regular = (TextView) getView().findViewById(R.id.txt_fecha_regular);
+        txt_fecha_especial = (TextView) getView().findViewById(R.id.txt_fecha_especial);
+
+        txt_cronograma.setTypeface(UtilFonts.setLatoBolt(getActivity()));
+        txt_ruc_buscado.setTypeface(UtilFonts.setLatoReg(getActivity()));
+        txt_ruc_mostrado.setTypeface(UtilFonts.setLatoReg(getActivity()));
+        txt_periodo.setTypeface(UtilFonts.setLatoReg(getActivity()));
+        txt_fecha_regular.setTypeface(UtilFonts.setLatoReg(getActivity()));
+        txt_fecha_especial.setTypeface(UtilFonts.setLatoReg(getActivity()));
 
         objSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 3);
         //Log.d("count table", objSqlite.countTable()+"");

@@ -168,20 +168,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearTest"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btnTest"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:text="test dinamic view"/>
-
-
-        </LinearLayout>
     </LinearLayout>
 
 
