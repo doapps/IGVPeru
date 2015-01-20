@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -37,6 +38,9 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
     private EditText pigv;
     private EditText ptotal;
     private int igv;
+    private TextView txt_sub_total;
+    private TextView txt_igv;
+    private TextView txt_total;
 
     DecimalFormatSymbols simbolos = DecimalFormatSymbols.getInstance(Locale.ENGLISH);
     DecimalFormat df = new DecimalFormat("0.00",simbolos);
@@ -58,6 +62,11 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        //
+        txt_sub_total= (TextView) getView().findViewById(R.id.txt_sub_total);
+        txt_igv= (TextView) getView().findViewById(R.id.txt_igv);
+        txt_total = (TextView) getView().findViewById(R.id.txt_total);
 
         /*spinner*/
         spnIgv = (Spinner) getView().findViewById(R.id.spnIgv);

@@ -31,7 +31,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/sub_total"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:id="@+id/txt_sub_total"/>
 
             </LinearLayout>
 
@@ -50,7 +51,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/igv"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:id="@+id/txt_igv"/>
             </LinearLayout>
 
             <LinearLayout
@@ -67,7 +69,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/total"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white"
+                    android:id="@+id/txt_total"/>
 
             </LinearLayout>
 
