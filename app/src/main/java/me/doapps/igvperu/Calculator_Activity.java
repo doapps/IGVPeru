@@ -1,7 +1,6 @@
 package me.doapps.igvperu;
 
 import android.os.Bundle;
-import android.renderscript.Int2;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,7 +29,7 @@ public class Calculator_Activity extends ActionBarActivity implements AdapterVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calculator);
+        setContentView(R.layout.fragment_calculator);
 
 
 

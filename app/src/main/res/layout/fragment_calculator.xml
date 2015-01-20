@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
-    android:background="@color/teal_500"
-    >
+    android:background="@color/teal_500">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -32,7 +31,7 @@
                     android:layout_height="match_parent"
                     android:text="@string/sub_total"
                     android:textColor="@color/white"
-                    android:id="@+id/txt_sub_total"/>
+                    android:id="@+id/txt_sub_total" />
 
             </LinearLayout>
 
@@ -42,8 +41,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
-                android:background="@color/red_800"
-                >
+                android:background="@color/red_800">
 
                 <TextView
                     android:textSize="17dp"
@@ -52,7 +50,7 @@
                     android:layout_height="match_parent"
                     android:text="@string/igv"
                     android:textColor="@color/white"
-                    android:id="@+id/txt_igv"/>
+                    android:id="@+id/txt_igv" />
             </LinearLayout>
 
             <LinearLayout
@@ -70,10 +68,9 @@
                     android:layout_height="match_parent"
                     android:text="@string/total"
                     android:textColor="@color/white"
-                    android:id="@+id/txt_total"/>
+                    android:id="@+id/txt_total" />
 
             </LinearLayout>
-
 
 
         </LinearLayout>
@@ -101,7 +98,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/selector_edt"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -123,7 +120,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="2dp"
                     android:background="@drawable/selector_edt"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white" />
                 <!--
                 android:textColor="@color/white"
                 android:background="@drawable/selector_edt"/>
@@ -135,7 +132,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/spnIgv"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="15dp"/>
+                    android:layout_marginRight="15dp" />
 
             </LinearLayout>
 
@@ -158,7 +155,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/selector_edt"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white" />
                 <!--
                 android:textColor="@color/white"
                 android:background="@drawable/selector_edt"/>
@@ -168,6 +165,21 @@
                 android:background="@drawable/selector_edt"/>
                 -->
             </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnTest"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="test dinamic view"/>
+
 
         </LinearLayout>
     </LinearLayout>
