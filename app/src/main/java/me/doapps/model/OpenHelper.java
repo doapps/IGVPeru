@@ -15,7 +15,8 @@ public class OpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         try {
-            db.execSQL("create table schedule(_id integer primary key autoincrement," +
+            db.execSQL("create table schedule(" +
+                    "_id integer primary key autoincrement," +
                     "lastNumRuc integer NOT NULL,"+
                     "period text NOT NULL,"+
                     "regularPayment text NOT NULL,"+
