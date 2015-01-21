@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import com.viewpagerindicator.TabPageIndicator;
@@ -42,7 +43,7 @@ public class MainContent extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_splash, menu);
         return true;
     }
 
@@ -55,14 +56,17 @@ public class MainContent extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, ActivityAbout.class);
+            startActivity(intent);
             return true;
         }
+
 
         if (id == R.id.action_share){
             try {
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("text/plain");
-                i.putExtra(Intent.EXTRA_SUBJECT, "Curiosidades");
+                i.putExtra(Intent.EXTRA_SUBJECT, "PERUIgv");
                 String sAux = "\nTe invito a descargar esta aplicación:\n\n";
                 sAux = sAux + "https://play.google.com/store/apps/details?id=me.doapps.pondetuparte&hl=es\n\n";
                 i.putExtra(Intent.EXTRA_TEXT, sAux);
