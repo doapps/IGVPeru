@@ -80,11 +80,8 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
         String[] igvs = new String[]{"18%", "19%"};
 
 
-        //ArrayAdapterSpinner dataAdapter = new ArrayAdapterSpinner<CharSequence>(getActivity(),igvs2);
-
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, igvs);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //dataAdapter.setDropDownViewResource(R.layout.item_spinner);
 
         spnIgv.setAdapter(dataAdapter);
         spnIgv.setOnItemSelectedListener(this);
