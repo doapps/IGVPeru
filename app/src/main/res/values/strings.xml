@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">IGVPeru</string>
+    <string name="app_name">IGV Perú</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Acerca de</string>
     <string name="action_share">Share</string>

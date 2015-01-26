@@ -10,11 +10,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewConfiguration;
 import android.widget.Toast;
 
 
 import com.viewpagerindicator.TabPageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
+
+import java.lang.reflect.Field;
 
 import me.doapps.adapters.TabAdapter;
 
@@ -77,5 +80,7 @@ public class MainContent extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }
