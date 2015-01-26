@@ -141,16 +141,6 @@
                             android:textSize="15sp"
                             android:layout_marginBottom="8dp"/>
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Fecha Especial"
-                            android:gravity="center"
-                            android:textColor="@color/white"
-                            android:id="@+id/txt_fecha_especial"
-                            android:textSize="15sp"
-                            android:layout_marginBottom="8dp"/>
 
                     </TableRow>
 
@@ -172,14 +162,6 @@
 
                     <TextView
                         android:id="@+id/enerp"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="none"
-                        android:gravity="center"/>
-
-                    <TextView
-                        android:id="@+id/enesp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -210,14 +192,6 @@
                             android:text="none"
                             android:gravity="center"/>
 
-                        <TextView
-                            android:id="@+id/febsp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
                     </TableRow>
 
                     <TableRow
@@ -236,14 +210,6 @@
 
                         <TextView
                             android:id="@+id/marrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:id="@+id/marsp"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -274,14 +240,6 @@
                             android:text="none"
                             android:gravity="center"/>
 
-                        <TextView
-                            android:id="@+id/abrsp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
                     </TableRow>
 
                     <TableRow
@@ -300,14 +258,6 @@
 
                         <TextView
                             android:id="@+id/mayrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:id="@+id/maysp"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -338,14 +288,6 @@
                             android:text="none"
                             android:gravity="center"/>
 
-                        <TextView
-                            android:id="@+id/junsp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
                     </TableRow>
 
                     <TableRow
@@ -364,14 +306,6 @@
 
                         <TextView
                             android:id="@+id/julrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:id="@+id/julsp"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -402,14 +336,6 @@
                             android:text="none"
                             android:gravity="center"/>
 
-                        <TextView
-                            android:id="@+id/agosp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
                     </TableRow>
 
                     <TableRow
@@ -428,14 +354,6 @@
 
                         <TextView
                             android:id="@+id/seprp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:id="@+id/sepsp"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -466,14 +384,6 @@
                             android:text="none"
                             android:gravity="center"/>
 
-                        <TextView
-                            android:id="@+id/octsp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
                     </TableRow>
 
                     <TableRow
@@ -492,14 +402,6 @@
 
                         <TextView
                             android:id="@+id/novrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:id="@+id/novsp"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -530,17 +432,33 @@
                             android:text="none"
                             android:gravity="center"/>
 
-                        <TextView
-                            android:id="@+id/dicsp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
                     </TableRow>
                 </TableLayout>
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:id="@+id/textViewLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description_link"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_margin="10dp"
+                    android:drawableLeft="@drawable/ic_link"
+                    android:textSize="15sp"
+                    />
+                <!--
+                    android:clickable="true"/>
+                -->
             </LinearLayout>
         </LinearLayout>
 

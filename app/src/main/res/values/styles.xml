@@ -20,6 +20,7 @@
 
     <!-- Title page indicator style -->
     <style name="CustomTitlePageIndicator">
+
         <item name="android:background">@color/white</item>
         <item name="footerColor">@color/red_800</item>
         <item name="footerLineHeight">1dp</item>
@@ -28,6 +29,7 @@
         <item name="android:textColor">@color/red_200</item>
         <item name="selectedColor">@color/red_800</item>
         <item name="selectedBold">true</item>
+
     </style>
 
 </resources>

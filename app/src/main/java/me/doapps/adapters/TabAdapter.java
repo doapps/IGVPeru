@@ -15,6 +15,7 @@ public class TabAdapter extends FragmentPagerAdapter {
     public TabAdapter(FragmentManager fragmentManager){
         super(fragmentManager);
     }
+
     @Override
     public Fragment getItem(int position) {
         if(position == 0){

@@ -1,10 +1,14 @@
 package me.doapps.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,10 +37,11 @@ public class ScheduleFragment extends Fragment {
     Button buttonSearchRuc;
     OpenHelper objSqlite;
     TextView RUC,period01,period02,period03,period04,period05,period06,period07,period08,period09,period10,period11,period12,
-            enerp,enesp,febrp,febsp,marrp,marsp,
-             abrrp,abrsp,mayrp,maysp,junrp,junsp,
-             julrp,julsp,agorp,agosp,seprp,sepsp,
-             octrp,octsp,novrp,novsp,dicrp,dicsp;
+            enerp,febrp,marrp,
+            abrrp,mayrp,junrp,
+            julrp,agorp,seprp,
+            octrp,novrp,dicrp,
+            textViewLink;
     SimpleDateFormat sdf=new SimpleDateFormat("MM");
     TableRow f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12;
 
@@ -45,7 +50,6 @@ public class ScheduleFragment extends Fragment {
     private TextView txt_ruc_mostrado;
     private TextView txt_periodo;
     private TextView txt_fecha_regular;
-    private TextView txt_fecha_especial;
 
     public static final ScheduleFragment newInstance() {
         return new ScheduleFragment();
@@ -72,14 +76,14 @@ public class ScheduleFragment extends Fragment {
         txt_ruc_mostrado = (TextView) getView().findViewById(R.id.textViewSearchRuc);
         txt_periodo = (TextView) getView().findViewById(R.id.txt_periodo);
         txt_fecha_regular = (TextView) getView().findViewById(R.id.txt_fecha_regular);
-        txt_fecha_especial = (TextView) getView().findViewById(R.id.txt_fecha_especial);
+        //txt_fecha_especial = (TextView) getView().findViewById(R.id.txt_fecha_especial);
 
         txt_cronograma.setTypeface(UtilFonts.setLatoBolt(getActivity()));
         txt_ruc_buscado.setTypeface(UtilFonts.setLatoReg(getActivity()));
         txt_ruc_mostrado.setTypeface(UtilFonts.setLatoReg(getActivity()));
         txt_periodo.setTypeface(UtilFonts.setLatoReg(getActivity()));
         txt_fecha_regular.setTypeface(UtilFonts.setLatoReg(getActivity()));
-        txt_fecha_especial.setTypeface(UtilFonts.setLatoReg(getActivity()));
+        //txt_fecha_especial.setTypeface(UtilFonts.setLatoReg(getActivity()));
 
         objSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 3);
         //Log.d("count table", objSqlite.countTable()+"");
@@ -115,29 +119,29 @@ public class ScheduleFragment extends Fragment {
             period11=(TextView) getView().findViewById(R.id.period11);
             period12=(TextView) getView().findViewById(R.id.period12);
             enerp=(TextView) getView().findViewById(R.id.enerp);
-            enesp=(TextView) getView().findViewById(R.id.enesp);
+            //enesp=(TextView) getView().findViewById(R.id.enesp);
             febrp=(TextView) getView().findViewById(R.id.febrp);
-            febsp=(TextView) getView().findViewById(R.id.febsp);
+            //febsp=(TextView) getView().findViewById(R.id.febsp);
             marrp=(TextView) getView().findViewById(R.id.marrp);
-            marsp=(TextView) getView().findViewById(R.id.marsp);
+            //marsp=(TextView) getView().findViewById(R.id.marsp);
             abrrp=(TextView) getView().findViewById(R.id.abrrp);
-            abrsp=(TextView) getView().findViewById(R.id.abrsp);
+            //abrsp=(TextView) getView().findViewById(R.id.abrsp);
             mayrp=(TextView) getView().findViewById(R.id.mayrp);
-            maysp=(TextView) getView().findViewById(R.id.maysp);
+            //maysp=(TextView) getView().findViewById(R.id.maysp);
             junrp=(TextView) getView().findViewById(R.id.junrp);
-            junsp=(TextView) getView().findViewById(R.id.junsp);
+            //junsp=(TextView) getView().findViewById(R.id.junsp);
             julrp=(TextView) getView().findViewById(R.id.julrp);
-            julsp=(TextView) getView().findViewById(R.id.julsp);
+            //julsp=(TextView) getView().findViewById(R.id.julsp);
             agorp=(TextView) getView().findViewById(R.id.agorp);
-            agosp=(TextView) getView().findViewById(R.id.agosp);
+            //agosp=(TextView) getView().findViewById(R.id.agosp);
             seprp=(TextView) getView().findViewById(R.id.seprp);
-            sepsp=(TextView) getView().findViewById(R.id.sepsp);
+            //sepsp=(TextView) getView().findViewById(R.id.sepsp);
             octrp=(TextView) getView().findViewById(R.id.octrp);
-            octsp=(TextView) getView().findViewById(R.id.octsp);
+            //octsp=(TextView) getView().findViewById(R.id.octsp);
             novrp=(TextView) getView().findViewById(R.id.novrp);
-            novsp=(TextView) getView().findViewById(R.id.novsp);
+            //novsp=(TextView) getView().findViewById(R.id.novsp);
             dicrp=(TextView) getView().findViewById(R.id.dicrp);
-            dicsp=(TextView) getView().findViewById(R.id.dicsp);
+            //dicsp=(TextView) getView().findViewById(R.id.dicsp);
 
             //initSchedule();
 
@@ -147,7 +151,28 @@ public class ScheduleFragment extends Fragment {
             //adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, show);
             //lv.setAdapter(adapter);
             editTextRuc = (EditText) getView().findViewById(R.id.editTextRuc);
+            textViewLink = (TextView) getView().findViewById(R.id.textViewLink);
+            textViewLink.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String link = getString(R.string.link);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                    startActivity(intent);
+                }
+            });
+            //textViewLink.setClickable(true);
+            //textViewLink.setMovementMethod(LinkMovementMethod.getInstance());
 
+            //String text = "<a href=\""+"http://www.google.com"+"\">"+"http://www.google.com"+"</a>HOLA MUNDO";
+
+            //String text = "<a href='http://www.sunat.gob.pe/cl-ti-itcronobligme/fvS01Alias'> Cronograma de pago SUNAT <click> </a>";
+            //textViewLink.setText(Html.fromHtml(text));
+            /*
+            textViewLink =  (TextView) getView().findViewById(R.id.textViewLink);
+            String text = getString(R.string.link_SUNAT);
+            CharSequence styledText = Html.fromHtml(text);
+            textViewLink.setText(styledText.toString());
+            */
             buttonSearchRuc = (Button) getView().findViewById(R.id.buttonBuscarRuc);
             buttonSearchRuc.setOnClickListener(new View.OnClickListener() {
 
@@ -249,7 +274,7 @@ public class ScheduleFragment extends Fragment {
         try {
             String[] show = null;
             if (!ruc.equals(" ")) {
-                Object[][] Result = objSqlite.Search("schedule", new String[]{"period","RegularPayment", "SpecialPayment"}, " lastNumRuc='" + ruc.charAt(10) + "' AND status=1");
+                Object[][] Result = objSqlite.Search("schedule", new String[]{"period","RegularPayment"}, " lastNumRuc='" + ruc.charAt(10) + "' AND status=1");
                 if (Result != null) {
                     period01.setText(Result[0][0].toString());
                     period02.setText(Result[1][0].toString());
@@ -278,54 +303,54 @@ public class ScheduleFragment extends Fragment {
                     period12.setTextColor(Color.WHITE);
 
                     enerp.setText(Result[0][1].toString());
-                    enesp.setText(Result[0][2].toString());
+                    //enesp.setText(Result[0][2].toString());
                     febrp.setText(Result[1][1].toString());
-                    febsp.setText(Result[1][2].toString());
+                    //febsp.setText(Result[1][2].toString());
                     marrp.setText(Result[2][1].toString());
-                    marsp.setText(Result[2][2].toString());
+                    //marsp.setText(Result[2][2].toString());
                     abrrp.setText(Result[3][1].toString());
-                    abrsp.setText(Result[3][2].toString());
+                    //abrsp.setText(Result[3][2].toString());
                     mayrp.setText(Result[4][1].toString());
-                    maysp.setText(Result[4][2].toString());
+                    //maysp.setText(Result[4][2].toString());
                     junrp.setText(Result[5][1].toString());
-                    junsp.setText(Result[5][2].toString());
+                    //junsp.setText(Result[5][2].toString());
                     julrp.setText(Result[6][1].toString());
-                    julsp.setText(Result[6][2].toString());
+                    //julsp.setText(Result[6][2].toString());
                     agorp.setText(Result[7][1].toString());
-                    agosp.setText(Result[7][2].toString());
+                    //agosp.setText(Result[7][2].toString());
                     seprp.setText(Result[8][1].toString());
-                    sepsp.setText(Result[8][2].toString());
+                    //sepsp.setText(Result[8][2].toString());
                     octrp.setText(Result[9][1].toString());
-                    octsp.setText(Result[9][2].toString());
+                    //octsp.setText(Result[9][2].toString());
                     novrp.setText(Result[10][1].toString());
-                    novsp.setText(Result[10][2].toString());
+                    //novsp.setText(Result[10][2].toString());
                     dicrp.setText(Result[11][1].toString());
-                    dicsp.setText(Result[11][2].toString());
+                    //dicsp.setText(Result[11][2].toString());
 
                     enerp.setTextColor(Color.WHITE);
-                    enesp.setTextColor(Color.WHITE);
+                    //enesp.setTextColor(Color.WHITE);
                     febrp.setTextColor(Color.WHITE);
-                    febsp.setTextColor(Color.WHITE);
+                    //febsp.setTextColor(Color.WHITE);
                     marrp.setTextColor(Color.WHITE);
-                    marsp.setTextColor(Color.WHITE);
+                    //marsp.setTextColor(Color.WHITE);
                     abrrp.setTextColor(Color.WHITE);
-                    abrsp.setTextColor(Color.WHITE);
+                    //abrsp.setTextColor(Color.WHITE);
                     mayrp.setTextColor(Color.WHITE);
-                    maysp.setTextColor(Color.WHITE);
+                    //maysp.setTextColor(Color.WHITE);
                     junrp.setTextColor(Color.WHITE);
-                    junsp.setTextColor(Color.WHITE);
+                    //junsp.setTextColor(Color.WHITE);
                     julrp.setTextColor(Color.WHITE);
-                    julsp.setTextColor(Color.WHITE);
+                    //julsp.setTextColor(Color.WHITE);
                     agorp.setTextColor(Color.WHITE);
-                    agosp.setTextColor(Color.WHITE);
+                    //agosp.setTextColor(Color.WHITE);
                     seprp.setTextColor(Color.WHITE);
-                    sepsp.setTextColor(Color.WHITE);
+                    //sepsp.setTextColor(Color.WHITE);
                     octrp.setTextColor(Color.WHITE);
-                    octsp.setTextColor(Color.WHITE);
+                    //octsp.setTextColor(Color.WHITE);
                     novrp.setTextColor(Color.WHITE);
-                    novsp.setTextColor(Color.WHITE);
+                    //novsp.setTextColor(Color.WHITE);
                     dicrp.setTextColor(Color.WHITE);
-                    dicsp.setTextColor(Color.WHITE);
+                    //dicsp.setTextColor(Color.WHITE);
                 } else {
                     Toast.makeText(getActivity(), "Not Found!", Toast.LENGTH_LONG).show();
                 }

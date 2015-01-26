@@ -19,5 +19,7 @@
     <string name="sub_total">SUB TOTAL</string>
     <string name="igv">IGV</string>
     <string name="total">TOTAL</string>
+    <string name="description_link">Ver cronograma oficial SUNAT</string>
+    <string name="link">http://www.sunat.gob.pe/cl-ti-itcronobligme/fvS01Alias</string>
 
 </resources>

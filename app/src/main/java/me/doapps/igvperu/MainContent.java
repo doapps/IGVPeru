@@ -30,7 +30,6 @@ public class MainContent extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
 
-
         mAdapter = new TabAdapter(getSupportFragmentManager());
         mPager = (ViewPager) findViewById(R.id.pager);
         mPager.setAdapter(mAdapter);
