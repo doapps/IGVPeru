@@ -27,6 +27,7 @@ public class MainContent extends ActionBarActivity {
     private TabAdapter mAdapter;
     private TitlePageIndicator mIndicator;
     private String[] TABS = {"CALCULADORA", "CRONOGRAMA"};
+    private static final String root_url = "https://play.google.com/store/apps/details?id=";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +71,7 @@ public class MainContent extends ActionBarActivity {
                 i.setType("text/plain");
                 i.putExtra(Intent.EXTRA_SUBJECT, "PERUIgv");
                 String sAux = "\nTe invito a descargar esta aplicación:\n\n";
-                sAux = sAux + "https://play.google.com/store/apps/details?id=me.doapps.pondetuparte&hl=es\n\n";
+                sAux = sAux + root_url + getPackageName();
                 i.putExtra(Intent.EXTRA_TEXT, sAux);
                 startActivity(Intent.createChooser(i, "Compartir"));
             } catch (Exception e) {
