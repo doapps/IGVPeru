@@ -5,7 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Acerca de</string>
     <string name="action_share">Share</string>
-    <string name="title_activity_main_content">IGVPeru</string>
+    <string name="title_activity_main_content">Peru</string>
+    <string name="title_activity_about">Acerca de</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_cronograma__pago">Cronograma_Pago</string>
     <string name="ruc">RUC</string>

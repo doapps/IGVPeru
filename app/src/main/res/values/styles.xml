@@ -14,8 +14,8 @@
 
     <!-- My Action Bar Style -->
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="background">@color/red_900</item>
-        <item name="android:background">@color/red_900</item>
+        <item name="background">@color/background_action_bar</item>
+        <item name="android:background">@color/background_action_bar</item>
     </style>
 
     <!-- Title page indicator style -->

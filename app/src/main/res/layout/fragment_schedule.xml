@@ -16,7 +16,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/editTextRuc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -33,7 +33,8 @@
                     android:layout_marginLeft="40dp"
                     android:padding="15dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@drawable/selector_edt"/>
+                    android:background="@drawable/selector_edt"
+                    android:completionThreshold="1"/>
 
             </LinearLayout>
 

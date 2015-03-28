@@ -4,108 +4,74 @@
     android:fillViewport="false"
     android:background="@color/white">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:id="@+id/content"
-    android:background="@color/white"
-    android:orientation="vertical"    >
-
-    <ImageView
-        android:layout_width="555dp"
-        android:layout_height="175dp"
-        android:id="@+id/imageView"
-        android:src="@drawable/logo_igv"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="5dp"
-        android:layout_alignBottom="@+id/scrollView"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal|top"
-        android:padding="20dp"/>
-
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="391dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/txt_title_about"
-            android:text="Acerca de IGVPeru"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/teal_500"
-            android:textSize="30dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:id="@+id/content"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Versión 1.0"
-            android:id="@+id/txt_about_version"
-            android:layout_gravity="center"
+        <ImageView
+            android:layout_width="555dp"
+            android:layout_height="175dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/logo_igv"
+            android:layout_marginBottom="0dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/teal_500"
-            />
+            android:layout_alignBottom="@+id/scrollView"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal|top"
+            android:padding="20dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="IGVPeru te ayudara a calcular el IGV de tus compras y ventas, además de mantenerte informado sobre tu cronograma de declaraciones."
-            android:id="@+id/txt_about_descrip"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/teal_500"
-            android:gravity="center"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Aplicacion desarrollada por:"
-            android:id="@+id/txt_about_desarr1"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/teal_500"/>
+            android:layout_marginTop="5dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="DoApps SAC."
-            android:id="@+id/txt_about_desarr2"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/teal_500"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Versión 1.1"
+                android:id="@+id/txt_about_version"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/teal_500" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aplicacion desarrollada por:"
+                android:id="@+id/txt_about_desarr1"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/teal_500" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/doapp_logo"
+                android:layout_gravity="center_horizontal"/>
 
 
         </LinearLayout>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Contacta a DoApps"
-        android:id="@+id/btn_contacto"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/selector_button_teal"
-        android:textColor="@color/white"
-        android:padding="15dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contáctanos"
+            android:id="@+id/btn_contacto"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/selector_button_teal"
+            android:textColor="@color/white"
+            android:padding="15dp" />
 
-</LinearLayout>
+    </LinearLayout>
+
 </ScrollView>

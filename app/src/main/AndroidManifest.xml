@@ -34,13 +34,13 @@
         <activity
             android:name=".MainContent"
             android:label="@string/title_activity_main_content"
-            android:windowSoftInputMode="stateHidden"
-            >
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".ActivityAbout"
-            android:label="@string/title_activity_main_content"
+            android:label="@string/title_activity_about"
             android:windowSoftInputMode="stateHidden"
+            android:parentActivityName="me.doapps.igvperu.MainContent"
             >
         </activity>
         <activity
