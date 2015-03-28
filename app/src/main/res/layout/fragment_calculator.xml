@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
-    android:background="@color/gray_light">
+    android:background="@color/teal_500">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
-                android:background="@color/gree_light_two">
+                android:background="@color/red_900">
 
                 <TextView
                     android:textSize="17dp"
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
-                android:background="@color/gree_light_one">
+                android:background="@color/red_800">
 
                 <TextView
                     android:textSize="17dp"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
-                android:background="@color/gree_light_two">
+                android:background="@color/red_900">
 
                 <TextView
                     android:textSize="17dp"
@@ -111,7 +111,7 @@
 
                 <EditText
                     android:textSize="17dp"
-                    android:layout_weight="6"
+                    android:layout_weight="5.8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/pigv"

@@ -9,7 +9,15 @@ public class ArrayRucs {
     ArrayList<String> rucs = new ArrayList<String>();
 
     public void addRuc(String ruc){
-        rucs.add(ruc);
+        boolean exists = false;
+        for(int i=0;i<rucs.size();i++){
+            if(ruc.equalsIgnoreCase(rucs.get(i))){
+                exists = true;
+            }
+        }
+        if(!exists){
+            rucs.add(ruc);
+        }
     }
 
     public ArrayList<String> getRucs(){
