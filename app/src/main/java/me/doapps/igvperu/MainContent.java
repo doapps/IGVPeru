@@ -26,7 +26,6 @@ public class MainContent extends ActionBarActivity {
     public ViewPager mPager;
     private TabAdapter mAdapter;
     private TitlePageIndicator mIndicator;
-    private String[] TABS = {"CALCULADORA", "CRONOGRAMA"};
     private static final String root_url = "https://play.google.com/store/apps/details?id=";
 
     @Override

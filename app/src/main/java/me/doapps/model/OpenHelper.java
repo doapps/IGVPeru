@@ -1,5 +1,6 @@
 package me.doapps.model;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,6 +22,12 @@ public class OpenHelper extends SQLiteOpenHelper {
                     "period text NOT NULL,"+
                     "regularPayment text NOT NULL,"+
                     //"specialPayment text NOT NULL,"+
+                    "status integer NOT NULL)");
+            db.execSQL("create table history(" +
+                    "_id integer primary key autoincrement," +
+                    "ruc integer NOT NULL,"+
+                    "company text NOT NULL,"+
+                    "date text NOT NULL,"+
                     "status integer NOT NULL)");
 
             db.execSQL("INSERT INTO schedule (lastNumRuc,period,regularPayment,status) VALUES(0,'Ene-15','13 Feb',"+1+")");
@@ -207,6 +214,33 @@ public class OpenHelper extends SQLiteOpenHelper {
             Log.e(null, "ERROR OpenHelper Search: " + e.getMessage());
             return null;
         }
+    }
+
+    /****/
+    public void insertHistory(int ruc, String company, String date, int status) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        db.insert("history", null, contentValuesHistory(ruc, company, date, status));
+    }
+    private ContentValues contentValuesHistory(int ruc, String company, String date, int status) {
+        ContentValues values = new ContentValues();
+        values.put("ruc", ruc);
+        values.put("company", company);
+        values.put("date", date);
+        values.put("status", status);
+        return values;
+    }
+
+    public Cursor selectHistory() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = new String[]{"ruc","company","date","status"};
+        return db.query("history", columns, "status" + "=?", new String[]{"1"}, null, null, null);
+    }
+
+    public void updateHistory(String id, String state) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("status", state);
+        db.update("history", values, "_id" + "=?", new String[]{id});
     }
 
 }

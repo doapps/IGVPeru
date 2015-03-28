@@ -16,5 +16,10 @@
     <color name="red_500">#F44336</color>
     <color name="red_800">#C62828</color>
     <color name="red_900">#B71C1C</color>
+    
+    <!-- Update Colors -->
+    <color name="gray_light">#EDEBE6</color>
+    <color name="gree_light_one">#D6E1C7</color>
+    <color name="gree_light_two">#94C7B6</color>
 
 </resources>

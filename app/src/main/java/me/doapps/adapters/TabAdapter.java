@@ -5,46 +5,43 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import me.doapps.fragments.CalculatorFragment;
+import me.doapps.fragments.HistoryFragment;
 import me.doapps.fragments.ScheduleFragment;
 
 /**
  * Created by jonathan on 13/01/2015.
  */
 public class TabAdapter extends FragmentPagerAdapter {
+    private String[] TABS = {"CALCULADORA", "CRONOGRAMA", "HISTORIAL"};
 
-    public TabAdapter(FragmentManager fragmentManager){
+    public TabAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 
     @Override
     public Fragment getItem(int position) {
-        if(position == 0){
-            return CalculatorFragment.newInstance();
+        Fragment fragment = CalculatorFragment.newInstance();
+        switch (position) {
+            case 0:
+                fragment = CalculatorFragment.newInstance();
+                break;
+            case 1:
+                fragment = ScheduleFragment.newInstance();
+                break;
+            case 2:
+                fragment = HistoryFragment.newsInstance();
+                break;
         }
-        else{
-            return ScheduleFragment.newInstance();
-        }
+        return fragment;
     }
 
     @Override
     public int getCount() {
-        return 2;
+        return TABS.length;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        String title = "";
-        switch (position) {
-            case 0:
-                title = "CALCULADORA";
-                break;
-            case 1:
-                title = "CRONOGRAMA";
-                break;
-            default:
-                title = "CALCULADORA";
-                break;
-        }
-        return title;
+        return TABS[position];
     }
 }

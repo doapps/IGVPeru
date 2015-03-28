@@ -23,6 +23,12 @@
     <string name="description_link">Ver cronograma oficial SUNAT</string>
     <string name="link">http://www.sunat.gob.pe/cl-ti-itcronobligme/fvS01Alias</string>
 
+    <!-- item history -->
+    <string name="company_name">Empresa</string>
+    <string name="ruc_number">65748376542</string>
+    <string name="periodo">Mar-15</string>
+    <string name="date">22 Abr</string>
+
 
     <!-- Parse Keys -->
     <string name="application_id">zO8aCYwfgi9dHsXOftGUiWAkHlulRR4yUXDMCLPi</string>

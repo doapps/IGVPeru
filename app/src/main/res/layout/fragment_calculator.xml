@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
-    android:background="@color/teal_500">
+    android:background="@color/gray_light">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
-                android:background="@color/red_900">
+                android:background="@color/gree_light_two">
 
                 <TextView
                     android:textSize="17dp"
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
-                android:background="@color/red_800">
+                android:background="@color/gree_light_one">
 
                 <TextView
                     android:textSize="17dp"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
-                android:background="@color/red_900">
+                android:background="@color/gree_light_two">
 
                 <TextView
                     android:textSize="17dp"
