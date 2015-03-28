@@ -22,4 +22,8 @@
     <string name="description_link">Ver cronograma oficial SUNAT</string>
     <string name="link">http://www.sunat.gob.pe/cl-ti-itcronobligme/fvS01Alias</string>
 
+
+    <!-- Parse Keys -->
+    <string name="application_id">zO8aCYwfgi9dHsXOftGUiWAkHlulRR4yUXDMCLPi</string>
+    <string name="client_key">XAZVmJ4Lcm2M0m1mO639HeM4fnvKhGWq3OZr4oZS</string>
 </resources>

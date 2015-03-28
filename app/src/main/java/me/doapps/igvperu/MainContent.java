@@ -2,6 +2,7 @@ package me.doapps.igvperu;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -29,10 +30,22 @@ public class MainContent extends ActionBarActivity {
     private String[] TABS = {"CALCULADORA", "CRONOGRAMA"};
     private static final String root_url = "https://play.google.com/store/apps/details?id=";
 
+    private String push_url;
+    private static final String PUSH_URL = "push_url";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
+
+        /**Push Action**/
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            push_url = extras.getString(PUSH_URL);
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(push_url));
+            startActivity(intent);
+        }
+        /****/
 
         mAdapter = new TabAdapter(getSupportFragmentManager());
         mPager = (ViewPager) findViewById(R.id.pager);
