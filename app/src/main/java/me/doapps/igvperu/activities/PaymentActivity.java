@@ -1,4 +1,4 @@
-package me.doapps.igvperu;
+package me.doapps.igvperu.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -7,7 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import me.doapps.model.OpenHelper;
+import me.doapps.igvperu.model.OpenHelper;
+import me.doapps.igvperu.R;
 
 public class PaymentActivity extends ActionBarActivity{
     EditText editTextRuc;
@@ -24,7 +25,7 @@ public class PaymentActivity extends ActionBarActivity{
             //GridView lv=(GridView)findViewById(R.id.gridViewResultado);
            // lv.setAdapter(adapter);
             editTextRuc=(EditText)findViewById(R.id.editTextRuc);
-            buttonSearchRuc=(Button)findViewById(R.id.buttonBuscarRuc);
+            buttonSearchRuc=(Button)findViewById(R.id.buttonSearchRuc);
             //buttonSearchRuc.setText("HOLA");
             /*
             buttonSearchRuc.setOnClickListener(new View.OnClickListener() {

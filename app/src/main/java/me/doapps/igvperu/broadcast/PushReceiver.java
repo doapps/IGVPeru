@@ -1,4 +1,4 @@
-package me.doapps.broadcast;
+package me.doapps.igvperu.broadcast;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import com.parse.ParsePushBroadcastReceiver;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import me.doapps.igvperu.MainContent;
+import me.doapps.igvperu.activities.MainContent;
 
 /**
  * Created by jonathan on 28/03/2015.

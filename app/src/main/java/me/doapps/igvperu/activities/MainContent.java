@@ -1,25 +1,20 @@
-package me.doapps.igvperu;
+package me.doapps.igvperu.activities;
 
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.net.Uri;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewConfiguration;
-import android.widget.Toast;
 
 
-import com.viewpagerindicator.TabPageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
-import java.lang.reflect.Field;
-
-import me.doapps.adapters.TabAdapter;
+import me.doapps.igvperu.adapters.TabAdapter;
+import me.doapps.igvperu.R;
 
 public class MainContent extends ActionBarActivity {
 
@@ -28,10 +23,23 @@ public class MainContent extends ActionBarActivity {
     private TitlePageIndicator mIndicator;
     private static final String root_url = "https://play.google.com/store/apps/details?id=";
 
+    private String push_url = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
+
+        getSupportActionBar().setLogo(R.drawable.ic_launcher);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            push_url = extras.getString("push_url");
+            Intent implicit = new Intent(Intent.ACTION_VIEW, Uri.parse(push_url));
+            startActivity(implicit);
+        }
 
         mAdapter = new TabAdapter(getSupportFragmentManager());
         mPager = (ViewPager) findViewById(R.id.pager);

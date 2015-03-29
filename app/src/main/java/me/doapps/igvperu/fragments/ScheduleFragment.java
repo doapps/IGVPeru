@@ -1,4 +1,4 @@
-package me.doapps.fragments;
+package me.doapps.igvperu.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,19 +20,23 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.shamanland.fab.FloatingActionButton;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import me.doapps.igvperu.R;
-import me.doapps.model.ArrayRucs;
-import me.doapps.model.OpenHelper;
-import me.doapps.utils.PreferencesUtil;
-import me.doapps.utils.UtilFonts;
+import me.doapps.igvperu.dialogs.FavoriteDialog;
+import me.doapps.igvperu.model.ArrayRucs;
+import me.doapps.igvperu.model.OpenHelper;
+import me.doapps.igvperu.utils.PreferencesUtil;
+import me.doapps.igvperu.utils.UtilFonts;
 
 /**
  * Created by jonathan on 13/01/2015.
  */
-public class ScheduleFragment extends Fragment {
+public class ScheduleFragment extends Fragment implements View.OnClickListener {
+    private FloatingActionButton fabFavorite;
     LinearLayout contentResult;
     Button buttonSearchRuc;
     OpenHelper objSqlite;
@@ -52,6 +56,8 @@ public class ScheduleFragment extends Fragment {
     private TextView txt_fecha_regular;
     PreferencesUtil preferencesUtil;
 
+    private String ruc;
+
     public static final ScheduleFragment newInstance() {
         return new ScheduleFragment();
     }
@@ -59,6 +65,9 @@ public class ScheduleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_schedule, container, false);
+
+        fabFavorite = (FloatingActionButton)view.findViewById(R.id.fabFavorite);
+        buttonSearchRuc = (Button) view.findViewById(R.id.buttonSearchRuc);
 
         txt_cronograma = (TextView) view.findViewById(R.id.txt_cronograma);
         txt_ruc_buscado = (TextView) view.findViewById(R.id.txt_ruc_buscado);
@@ -141,28 +150,9 @@ public class ScheduleFragment extends Fragment {
             }
         });
 
-        buttonSearchRuc = (Button) getView().findViewById(R.id.buttonBuscarRuc);
-        buttonSearchRuc.setOnClickListener(new View.OnClickListener() {
+        fabFavorite.setOnClickListener(this);
 
-            @Override
-            public void onClick(View v) {
-                String Ruc = editTextRuc.getText().toString();
-                if (Ruc.length() == 11) {
-                    contentResult.setVisibility(View.VISIBLE);
-                    RUC.setText(Ruc);
-                    Search(Ruc);
-                    historyRucs.addRuc(Ruc);
-                    InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    inputMethodManager.hideSoftInputFromWindow(editTextRuc.getWindowToken(), 0);
-                    preferencesUtil.setHistoryRucs(historyRucs);
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, historyRucs.getRucs());
-                    editTextRuc.setAdapter(adapter);
-                } else {
-                    Toast.makeText(getActivity(), "Formato incorrecto!!", Toast.LENGTH_LONG).show();
-                    contentResult.setVisibility(View.GONE);
-                }
-            }
-        });
+        buttonSearchRuc.setOnClickListener(this);
 
         String month = sdf.format(new Date());
 
@@ -276,6 +266,7 @@ public class ScheduleFragment extends Fragment {
                     octrp.setTextColor(Color.WHITE);
                     novrp.setTextColor(Color.WHITE);
                     dicrp.setTextColor(Color.WHITE);
+                    fabFavorite.setVisibility(View.VISIBLE);
                 } else {
                     Toast.makeText(getActivity(), "Not Found!", Toast.LENGTH_LONG).show();
                 }
@@ -287,5 +278,41 @@ public class ScheduleFragment extends Fragment {
             Log.e(null, "ERROR Payment_schedule Search: " + e.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.fabFavorite:
+                Log.e("ruc number", ruc);
+                final FavoriteDialog dialog = new FavoriteDialog(getActivity(), ruc);
+                dialog.show();
+                dialog.setInterfaceFavorite(new FavoriteDialog.InterfaceFavorite() {
+                    @Override
+                    public void getFavorite(String tempRuc, String tempCompany) {
+                        objSqlite.insertHistory(tempRuc,tempCompany,"10 Abr",1);
+                        dialog.dismiss();
+                    }
+                });
+                break;
+            case R.id.buttonSearchRuc:
+                ruc = editTextRuc.getText().toString();
+                if (ruc.length() == 11) {
+                    contentResult.setVisibility(View.VISIBLE);
+                    RUC.setText(ruc);
+                    Search(ruc);
+                    historyRucs.addRuc(ruc);
+                    InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.hideSoftInputFromWindow(editTextRuc.getWindowToken(), 0);
+                    preferencesUtil.setHistoryRucs(historyRucs);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, historyRucs.getRucs());
+                    editTextRuc.setAdapter(adapter);
+                } else {
+                    Toast.makeText(getActivity(), "Formato incorrecto!!", Toast.LENGTH_LONG).show();
+                    contentResult.setVisibility(View.GONE);
+                }
+                break;
+        }
+
     }
 }

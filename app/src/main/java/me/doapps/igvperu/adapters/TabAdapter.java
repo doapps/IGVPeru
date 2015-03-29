@@ -1,12 +1,12 @@
-package me.doapps.adapters;
+package me.doapps.igvperu.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import me.doapps.fragments.CalculatorFragment;
-import me.doapps.fragments.HistoryFragment;
-import me.doapps.fragments.ScheduleFragment;
+import me.doapps.igvperu.fragments.CalculatorFragment;
+import me.doapps.igvperu.fragments.HistoryFragment;
+import me.doapps.igvperu.fragments.ScheduleFragment;
 
 /**
  * Created by jonathan on 13/01/2015.

@@ -1,4 +1,4 @@
-package me.doapps.model;
+package me.doapps.igvperu.model;
 
 import java.util.ArrayList;
 

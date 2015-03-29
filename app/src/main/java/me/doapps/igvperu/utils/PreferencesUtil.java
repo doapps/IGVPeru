@@ -1,4 +1,4 @@
-package me.doapps.utils;
+package me.doapps.igvperu.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import me.doapps.model.ArrayRucs;
+import me.doapps.igvperu.model.ArrayRucs;
 
 /**
  * Created by jonathan on 02/02/2015.

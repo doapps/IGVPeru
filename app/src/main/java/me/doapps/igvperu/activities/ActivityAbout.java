@@ -1,4 +1,4 @@
-package me.doapps.igvperu;
+package me.doapps.igvperu.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -8,10 +8,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
-import me.doapps.utils.UtilFonts;
+import me.doapps.igvperu.utils.UtilFonts;
+import me.doapps.igvperu.R;
 
 /**
  * Created by Bryam on 21/01/2015.

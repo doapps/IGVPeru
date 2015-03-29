@@ -1,4 +1,4 @@
-package me.doapps.model;
+package me.doapps.igvperu.model;
 
 import android.content.Context;
 import android.graphics.Color;

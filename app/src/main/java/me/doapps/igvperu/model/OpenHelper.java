@@ -1,4 +1,4 @@
-package me.doapps.model;
+package me.doapps.igvperu.model;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -25,7 +25,7 @@ public class OpenHelper extends SQLiteOpenHelper {
                     "status integer NOT NULL)");
             db.execSQL("create table history(" +
                     "_id integer primary key autoincrement," +
-                    "ruc integer NOT NULL,"+
+                    "ruc text NOT NULL,"+
                     "company text NOT NULL,"+
                     "date text NOT NULL,"+
                     "status integer NOT NULL)");
@@ -217,11 +217,11 @@ public class OpenHelper extends SQLiteOpenHelper {
     }
 
     /****/
-    public void insertHistory(int ruc, String company, String date, int status) {
+    public void insertHistory(String ruc, String company, String date, int status) {
         SQLiteDatabase db = this.getReadableDatabase();
         db.insert("history", null, contentValuesHistory(ruc, company, date, status));
     }
-    private ContentValues contentValuesHistory(int ruc, String company, String date, int status) {
+    private ContentValues contentValuesHistory(String ruc, String company, String date, int status) {
         ContentValues values = new ContentValues();
         values.put("ruc", ruc);
         values.put("company", company);

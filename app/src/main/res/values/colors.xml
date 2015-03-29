@@ -17,6 +17,7 @@
     <color name="red_500">#F44336</color>
     <color name="red_800">#C62828</color>
     <color name="red_900">#B71C1C</color>
+    <color name="red_forte">#851a1a</color>
     
     <!-- Update Colors -->
     <color name="gray_light">#EDEBE6</color>

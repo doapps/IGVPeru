@@ -1,4 +1,4 @@
-package me.doapps.adapters;
+package me.doapps.igvperu.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import me.doapps.igvperu.R;
-import me.doapps.model.History_DTO;
+import me.doapps.igvperu.model.History_DTO;
 
 /**
  * Created by jonathan on 28/03/2015.

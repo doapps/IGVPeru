@@ -1,4 +1,4 @@
-package me.doapps.model;
+package me.doapps.igvperu.model;
 
 /**
  * Created by jonathan on 28/03/2015.

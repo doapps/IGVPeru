@@ -37,18 +37,21 @@
 
                 <TextView
                     android:layout_weight="0.5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:text="RUC: " />
 
                 <TextView
                     android:layout_weight="1"
                     android:id="@+id/txtRuc"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:text="@string/ruc_number" />
 
                 <TextView
+                    android:visibility="gone"
                     android:layout_weight="1"
                     android:id="@+id/txtDate"
                     android:layout_width="wrap_content"

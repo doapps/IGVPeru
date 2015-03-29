@@ -1,4 +1,4 @@
-package me.doapps.fragments;
+package me.doapps.igvperu.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,11 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AnalogClock;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -24,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import me.doapps.igvperu.R;
-import me.doapps.utils.UtilFonts;
+import me.doapps.igvperu.utils.UtilFonts;
 
 /**
  * Created by jonathan on 13/01/2015.

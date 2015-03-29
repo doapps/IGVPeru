@@ -1,155 +1,157 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
     android:background="@color/teal_500">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/editTextRuc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/ruc"
+                android:inputType="number"
+                android:gravity="center"
+                android:autoText="false"
+                android:editable="false"
+                android:maxLength="11"
+                android:textColor="@color/white"
+                android:textColorHint="@color/teal_200"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:padding="15dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/selector_edt"
+                android:completionThreshold="1" />
+
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="20dp">
 
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <AutoCompleteTextView
-                    android:id="@+id/editTextRuc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/ruc"
-                    android:inputType="number"
-                    android:gravity="center"
-                    android:autoText="false"
-                    android:editable="false"
-                    android:maxLength="11"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/teal_200"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginLeft="40dp"
-                    android:padding="15dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/selector_edt"
-                    android:completionThreshold="1"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/buttonSearchRuc"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp">
+                android:padding="10dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:background="@drawable/selector_btn_red"
+                android:text="@string/buscar"
+                android:textColor="@color/white"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp" />
 
-                    <Button
-                        android:id="@+id/buttonBuscarRuc"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contentResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="@string/cronograma_pago"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:id="@+id/txt_cronograma"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:layout_weight="2"
+                        android:layout_weight="1"
+                        android:text="@string/search_ruc"
                         android:gravity="center"
-                        android:background="@drawable/selector_btn_red"
-                        android:text="@string/buscar"
                         android:textColor="@color/white"
-                        android:layout_marginRight="40dp"
-                        android:layout_marginLeft="40dp"/>
+                        android:id="@+id/txt_ruc_buscado"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="10dp" />
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/textViewSearchRuc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="10dp" />
 
-            <LinearLayout
-                android:id="@+id/contentResult"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                </TableRow>
 
-                <TableLayout
+                <TableRow
+                    android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TableRow
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="@string/period"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:id="@+id/txt_periodo"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="8dp" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:text="@string/cronograma_pago"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textColor="@color/white"
-                            android:id="@+id/txt_cronograma"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"/>
-
-                    </TableRow>
-                    <TableRow
+                    <TextView
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/search_ruc"
-                            android:gravity="center"
-                            android:textColor="@color/white"
-                            android:id="@+id/txt_ruc_buscado"
-                            android:textSize="15sp"
-                            android:layout_marginBottom="10dp"/>
-
-                        <TextView
-                            android:id="@+id/textViewSearchRuc"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
-                            android:layout_marginBottom="10dp"
-                            />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/period"
-                            android:gravity="center"
-                            android:textColor="@color/white"
-                            android:id="@+id/txt_periodo"
-                            android:textSize="15sp"
-                            android:layout_marginBottom="8dp"/>
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/regular_date"
-                            android:gravity="center"
-                            android:textColor="@color/white"
-                            android:id="@+id/txt_fecha_regular"
-                            android:textSize="15sp"
-                            android:layout_marginBottom="8dp"/>
+                        android:layout_weight="1"
+                        android:text="@string/regular_date"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:id="@+id/txt_fecha_regular"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="8dp" />
 
 
-                    </TableRow>
+                </TableRow>
 
-                    <TableRow
-                        android:id="@+id/rowEne"
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                <TableRow
+                    android:id="@+id/rowEne"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
 
                     <TextView
                         android:id="@+id/period01"
@@ -167,300 +169,306 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="none"
-                        android:gravity="center"/>
+                        android:gravity="center" />
 
-                    </TableRow>
+                </TableRow>
 
-                    <TableRow
-                        android:id="@+id/rowFeb"
+                <TableRow
+                    android:id="@+id/rowFeb"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/period02"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/period02"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:id="@+id/febrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/rowMar"
+                    <TextView
+                        android:id="@+id/febrp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/period03"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                </TableRow>
 
-                        <TextView
-                            android:id="@+id/marrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                <TableRow
+                    android:id="@+id/rowMar"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
 
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/rowAbr"
+                    <TextView
+                        android:id="@+id/period03"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/period04"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:id="@+id/abrrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/rowMay"
+                    <TextView
+                        android:id="@+id/marrp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/period05"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                </TableRow>
 
-                        <TextView
-                            android:id="@+id/mayrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                <TableRow
+                    android:id="@+id/rowAbr"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
 
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/rowJun"
+                    <TextView
+                        android:id="@+id/period04"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/period06"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:id="@+id/junrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/rowJul"
+                    <TextView
+                        android:id="@+id/abrrp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/period07"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                </TableRow>
 
-                        <TextView
-                            android:id="@+id/julrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                <TableRow
+                    android:id="@+id/rowMay"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
 
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/rowAgo"
+                    <TextView
+                        android:id="@+id/period05"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/period08"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:id="@+id/agorp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/rowSep"
+                    <TextView
+                        android:id="@+id/mayrp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/period09"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                </TableRow>
 
-                        <TextView
-                            android:id="@+id/seprp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                <TableRow
+                    android:id="@+id/rowJun"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
 
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/rowOct"
+                    <TextView
+                        android:id="@+id/period06"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/period10"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                        <TextView
-                            android:id="@+id/octrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
-
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/rowNov"
+                    <TextView
+                        android:id="@+id/junrp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/period11"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                </TableRow>
 
-                        <TextView
-                            android:id="@+id/novrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                <TableRow
+                    android:id="@+id/rowJul"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
 
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/rowDic"
+                    <TextView
+                        android:id="@+id/period07"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        android:gravity="center_horizontal">
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/period12"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/julrp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-                        <TextView
-                            android:id="@+id/dicrp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="none"
-                            android:gravity="center"/>
+                </TableRow>
 
-                    </TableRow>
-                </TableLayout>
+                <TableRow
+                    android:id="@+id/rowAgo"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/period08"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
 
-            <LinearLayout
-                android:orientation="horizontal"
+                    <TextView
+                        android:id="@+id/agorp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowSep"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/period09"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/seprp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowOct"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/period10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/octrp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowNov"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/period11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/novrp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rowDic"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/period12"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/dicrp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="none"
+                        android:gravity="center" />
+
+                </TableRow>
+            </TableLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/textViewLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/description_link"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:drawableLeft="@drawable/ic_link"
+                android:textSize="15sp" />
+
+            <com.shamanland.fab.FloatingActionButton
+                android:id="@+id/fabFavorite"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="5dp">
-
-                <TextView
-                    android:id="@+id/textViewLink"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/description_link"
-                    android:textColor="@color/white"
-                    android:gravity="center"
-                    android:layout_margin="10dp"
-                    android:drawableLeft="@drawable/ic_link"
-                    android:textSize="15sp"
-                    />
-                <!--
-                    android:clickable="true"/>
-                -->
-            </LinearLayout>
+                android:src="@drawable/ic_like"
+                app:floatingActionButtonColor="@drawable/fab_color"
+                app:floatingActionButtonSize="normal" />
         </LinearLayout>
+    </LinearLayout>
 
 </ScrollView>

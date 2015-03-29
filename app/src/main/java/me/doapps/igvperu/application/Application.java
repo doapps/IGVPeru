@@ -1,4 +1,4 @@
-package me.doapps.application;
+package me.doapps.igvperu.application;
 
 import com.parse.Parse;
 import com.parse.ParseACL;
@@ -6,7 +6,7 @@ import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.parse.PushService;
 
-import me.doapps.igvperu.MainContent;
+import me.doapps.igvperu.activities.MainContent;
 import me.doapps.igvperu.R;
 
 /**

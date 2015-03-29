@@ -1,4 +1,4 @@
-package me.doapps.igvperu;
+package me.doapps.igvperu.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import me.doapps.igvperu.R;
 
 /**
  * Created by Bryam on 13/01/2015.
