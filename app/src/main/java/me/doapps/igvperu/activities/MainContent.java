@@ -15,8 +15,10 @@ import com.viewpagerindicator.TitlePageIndicator;
 
 import me.doapps.igvperu.adapters.TabAdapter;
 import me.doapps.igvperu.R;
+import me.doapps.igvperu.fragments.HistoryFragment;
+import me.doapps.igvperu.fragments.ScheduleFragment;
 
-public class MainContent extends ActionBarActivity {
+public class MainContent extends ActionBarActivity implements ViewPager.OnPageChangeListener {
 
     public ViewPager mPager;
     private TabAdapter mAdapter;
@@ -43,6 +45,7 @@ public class MainContent extends ActionBarActivity {
 
         mAdapter = new TabAdapter(getSupportFragmentManager());
         mPager = (ViewPager) findViewById(R.id.pager);
+        mPager.setOnPageChangeListener(this);
         mPager.setAdapter(mAdapter);
 
         mIndicator = (TitlePageIndicator) findViewById(R.id.indicator);
@@ -89,6 +92,35 @@ public class MainContent extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    @Override
+    public void onPageScrolled(int i, float v, int i2) {
+        Log.e("page scrolled", "i:"+i+", v:"+v+", i2:"+i2);
+        /*if(i==1){
+            ((HistoryFragment)mAdapter.getItem(i+1)).updateHistory();
+        }*/
+    }
+
+    @Override
+    public void onPageSelected(int i) {
+        Log.e("position page", i+"");
+        if(i==2){
+           ((HistoryFragment)mAdapter.getItem(i)).updateHistory();
+        }
+        /*switch (i){
+            case 0:((HistoryFragment)mAdapter.getItem(i+2)).updateHistory();break;
+            case 1:((HistoryFragment)mAdapter.getItem(i+1)).updateHistory();break;
+            case 2:((HistoryFragment)mAdapter.getItem(i)).updateHistory();break;
+            default:break;
+        }*/
+        //((HistoryFragment)mAdapter.getItem(i)).updateHistory();
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int i) {
+        Log.e("pageScrollStateChanged",i+"");
+    }
 
 
 }

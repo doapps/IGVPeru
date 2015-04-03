@@ -1,16 +1,13 @@
-package me.doapps.igvperu.fragments;
+package me.doapps.igvperu.activities;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -26,120 +23,151 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import me.doapps.igvperu.R;
-import me.doapps.igvperu.dialogs.FavoriteDialog;
 import me.doapps.igvperu.model.ArrayRucs;
 import me.doapps.igvperu.model.OpenHelper;
 import me.doapps.igvperu.utils.PreferencesUtil;
 import me.doapps.igvperu.utils.UtilFonts;
 
 /**
- * Created by jonathan on 13/01/2015.
+ * Created by mili on 03/04/2015.
  */
-public class ScheduleFragment extends Fragment implements View.OnClickListener {
-    private FloatingActionButton fabFavorite;
-    LinearLayout contentResult;
-    Button buttonSearchRuc;
-    OpenHelper objSqlite;
-    TextView RUC, period01, period02, period03, period04, period05, period06, period07, period08, period09, period10, period11, period12,
-            enerp, febrp, marrp,
-            abrrp, mayrp, junrp,
-            julrp, agorp, seprp,
-            octrp, novrp, dicrp,
-            textViewLink;
-    SimpleDateFormat sdf = new SimpleDateFormat("MM");
-    TableRow f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12;
-    AutoCompleteTextView editTextRuc;
+public class FavoriteActivity extends ActionBarActivity {
+    private Button buttonSearchRuc;
     private TextView txt_cronograma;
     private TextView txt_ruc_buscado;
     private TextView txt_ruc_mostrado;
     private TextView txt_periodo;
     private TextView txt_fecha_regular;
-    PreferencesUtil preferencesUtil;
+
+    private TableRow f1;
+    private TableRow f2;
+    private TableRow f3;
+    private TableRow f4;
+    private TableRow f5;
+    private TableRow f6;
+    private TableRow f7;
+    private TableRow f8;
+    private TableRow f9;
+    private TableRow f10;
+    private TableRow f11;
+    private TableRow f12;
+
+    private TextView RUC;
+    private TextView period01;
+    private TextView period02;
+    private TextView period03;
+    private TextView period04;
+    private TextView period05;
+    private TextView period06;
+    private TextView period07;
+    private TextView period08;
+    private TextView period09;
+    private TextView period10;
+    private TextView period11;
+    private TextView period12;
+
+    private TextView enerp;
+    private TextView febrp;
+    private TextView marrp;
+    private TextView abrrp;
+    private TextView mayrp;
+    private TextView junrp;
+    private TextView julrp;
+    private TextView agorp;
+    private TextView seprp;
+    private TextView octrp;
+    private TextView novrp;
+    private TextView dicrp;
+    private LinearLayout contentResult;
+    private AutoCompleteTextView editTextRuc;
+    private TextView textViewLink;
+
+    private ArrayRucs historyRucs = new ArrayRucs();
+    private PreferencesUtil preferencesUtil;
+    private OpenHelper objSqlite;
+    private SimpleDateFormat sdf = new SimpleDateFormat("MM");
 
     private String ruc;
-    private ArrayRucs historyRucs = new ArrayRucs();
-
-    public static final ScheduleFragment newInstance() {
-        return new ScheduleFragment();
-    }
+    private String razon;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_schedule, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_schedule);
 
-        fabFavorite = (FloatingActionButton)view.findViewById(R.id.fabFavorite);
-        buttonSearchRuc = (Button) view.findViewById(R.id.buttonSearchRuc);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        txt_cronograma = (TextView) view.findViewById(R.id.txt_cronograma);
-        txt_ruc_buscado = (TextView) view.findViewById(R.id.txt_ruc_buscado);
-        txt_ruc_mostrado = (TextView) view.findViewById(R.id.textViewSearchRuc);
-        txt_periodo = (TextView) view.findViewById(R.id.txt_periodo);
-        txt_fecha_regular = (TextView) view.findViewById(R.id.txt_fecha_regular);
+        ruc = getIntent().getExtras().getString("ruc");
+        razon = getIntent().getExtras().getString("razon");
+        Log.e("llego ruc", ruc);
 
-        txt_cronograma.setTypeface(UtilFonts.setLatoBolt(getActivity()));
-        txt_ruc_buscado.setTypeface(UtilFonts.setLatoReg(getActivity()));
-        txt_ruc_mostrado.setTypeface(UtilFonts.setLatoReg(getActivity()));
-        txt_periodo.setTypeface(UtilFonts.setLatoReg(getActivity()));
-        txt_fecha_regular.setTypeface(UtilFonts.setLatoReg(getActivity()));
+        getSupportActionBar().setTitle(razon);
 
-        f1 = (TableRow) view.findViewById(R.id.rowEne);
-        f2 = (TableRow) view.findViewById(R.id.rowFeb);
-        f3 = (TableRow) view.findViewById(R.id.rowMar);
-        f4 = (TableRow) view.findViewById(R.id.rowAbr);
-        f5 = (TableRow) view.findViewById(R.id.rowMay);
-        f6 = (TableRow) view.findViewById(R.id.rowJun);
-        f7 = (TableRow) view.findViewById(R.id.rowJul);
-        f8 = (TableRow) view.findViewById(R.id.rowAgo);
-        f9 = (TableRow) view.findViewById(R.id.rowSep);
-        f10 = (TableRow) view.findViewById(R.id.rowOct);
-        f11 = (TableRow) view.findViewById(R.id.rowNov);
-        f11 = (TableRow) view.findViewById(R.id.rowDic);
+        buttonSearchRuc = (Button) findViewById(R.id.buttonSearchRuc);
+        txt_cronograma = (TextView) findViewById(R.id.txt_cronograma);
+        txt_ruc_buscado = (TextView) findViewById(R.id.txt_ruc_buscado);
 
-        RUC = (TextView) view.findViewById(R.id.textViewSearchRuc);
-        period01 = (TextView) view.findViewById(R.id.period01);
-        period02 = (TextView) view.findViewById(R.id.period02);
-        period03 = (TextView) view.findViewById(R.id.period03);
-        period04 = (TextView) view.findViewById(R.id.period04);
-        period05 = (TextView) view.findViewById(R.id.period05);
-        period06 = (TextView) view.findViewById(R.id.period06);
-        period07 = (TextView) view.findViewById(R.id.period07);
-        period08 = (TextView) view.findViewById(R.id.period08);
-        period09 = (TextView) view.findViewById(R.id.period09);
-        period10 = (TextView) view.findViewById(R.id.period10);
-        period11 = (TextView) view.findViewById(R.id.period11);
-        period12 = (TextView) view.findViewById(R.id.period12);
-        enerp = (TextView) view.findViewById(R.id.enerp);
-        febrp = (TextView) view.findViewById(R.id.febrp);
-        marrp = (TextView) view.findViewById(R.id.marrp);
-        abrrp = (TextView) view.findViewById(R.id.abrrp);
-        mayrp = (TextView) view.findViewById(R.id.mayrp);
-        junrp = (TextView) view.findViewById(R.id.junrp);
-        julrp = (TextView) view.findViewById(R.id.julrp);
-        agorp = (TextView) view.findViewById(R.id.agorp);
-        seprp = (TextView) view.findViewById(R.id.seprp);
-        octrp = (TextView) view.findViewById(R.id.octrp);
-        novrp = (TextView) view.findViewById(R.id.novrp);
-        dicrp = (TextView) view.findViewById(R.id.dicrp);
-        contentResult = (LinearLayout) view.findViewById(R.id.contentResult);
-        editTextRuc = (AutoCompleteTextView) view.findViewById(R.id.editTextRuc);
-        textViewLink = (TextView) view.findViewById(R.id.textViewLink);
-        return view;
-    }
+        txt_ruc_mostrado = (TextView) findViewById(R.id.textViewSearchRuc);
+        txt_periodo = (TextView) findViewById(R.id.txt_periodo);
+        txt_fecha_regular = (TextView) findViewById(R.id.txt_fecha_regular);
 
+        txt_cronograma.setTypeface(UtilFonts.setLatoBolt(this));
+        txt_ruc_buscado.setTypeface(UtilFonts.setLatoReg(this));
+        txt_ruc_mostrado.setTypeface(UtilFonts.setLatoReg(this));
+        txt_periodo.setTypeface(UtilFonts.setLatoReg(this));
+        txt_fecha_regular.setTypeface(UtilFonts.setLatoReg(this));
 
+        f1 = (TableRow) findViewById(R.id.rowEne);
+        f2 = (TableRow) findViewById(R.id.rowFeb);
+        f3 = (TableRow) findViewById(R.id.rowMar);
+        f4 = (TableRow) findViewById(R.id.rowAbr);
+        f5 = (TableRow) findViewById(R.id.rowMay);
+        f6 = (TableRow) findViewById(R.id.rowJun);
+        f7 = (TableRow) findViewById(R.id.rowJul);
+        f8 = (TableRow) findViewById(R.id.rowAgo);
+        f9 = (TableRow) findViewById(R.id.rowSep);
+        f10 = (TableRow) findViewById(R.id.rowOct);
+        f11 = (TableRow) findViewById(R.id.rowNov);
+        f12 = (TableRow) findViewById(R.id.rowDic);
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        preferencesUtil = new PreferencesUtil(getActivity());
+        RUC = (TextView) findViewById(R.id.textViewSearchRuc);
+        period01 = (TextView) findViewById(R.id.period01);
+        period02 = (TextView) findViewById(R.id.period02);
+        period03 = (TextView) findViewById(R.id.period03);
+        period04 = (TextView) findViewById(R.id.period04);
+        period05 = (TextView) findViewById(R.id.period05);
+        period06 = (TextView) findViewById(R.id.period06);
+        period07 = (TextView) findViewById(R.id.period07);
+        period08 = (TextView) findViewById(R.id.period08);
+        period09 = (TextView) findViewById(R.id.period09);
+        period10 = (TextView) findViewById(R.id.period10);
+        period11 = (TextView) findViewById(R.id.period11);
+        period12 = (TextView) findViewById(R.id.period12);
+        enerp = (TextView) findViewById(R.id.enerp);
+        febrp = (TextView) findViewById(R.id.febrp);
+        marrp = (TextView) findViewById(R.id.marrp);
+        abrrp = (TextView) findViewById(R.id.abrrp);
+        mayrp = (TextView) findViewById(R.id.mayrp);
+        junrp = (TextView) findViewById(R.id.junrp);
+        julrp = (TextView) findViewById(R.id.julrp);
+        agorp = (TextView) findViewById(R.id.agorp);
+        seprp = (TextView) findViewById(R.id.seprp);
+        octrp = (TextView) findViewById(R.id.octrp);
+        novrp = (TextView) findViewById(R.id.novrp);
+        dicrp = (TextView) findViewById(R.id.dicrp);
+        contentResult = (LinearLayout) findViewById(R.id.contentResult);
+        editTextRuc = (AutoCompleteTextView) findViewById(R.id.editTextRuc);
+        textViewLink = (TextView) findViewById(R.id.textViewLink);
+
+        preferencesUtil = new PreferencesUtil(this);
         historyRucs = preferencesUtil.getHistoryRucs();
-        objSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 3);
+        objSqlite = new OpenHelper(this, "IGVPeru", null, 3);
 
         //try {
 
         contentResult.setVisibility(View.GONE);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, historyRucs.getRucs());
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, historyRucs.getRucs());
         editTextRuc.setAdapter(adapter);
 
         textViewLink.setOnClickListener(new View.OnClickListener() {
@@ -151,9 +179,9 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        fabFavorite.setOnClickListener(this);
 
-        buttonSearchRuc.setOnClickListener(this);
+
+        buttonSearchRuc.setVisibility(View.GONE);
 
         String month = sdf.format(new Date());
 
@@ -206,9 +234,17 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
                 }
             }
         }
-        //} catch (Exception e) {
-        //    Log.e(null, "ERROR Payment_Schedule onCreate: " + e.getMessage());
-        //}
+
+        contentResult.setVisibility(View.VISIBLE);
+        RUC.setText(ruc);
+        editTextRuc.setText(ruc);
+        Search(ruc);
+        historyRucs.addRuc(ruc);
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(editTextRuc.getWindowToken(), 0);
+        preferencesUtil.setHistoryRucs(historyRucs);
+        ArrayAdapter<String> adapter_ = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, historyRucs.getRucs());
+        editTextRuc.setAdapter(adapter_);
     }
 
     public String[] Search(String ruc) {
@@ -267,59 +303,17 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
                     octrp.setTextColor(Color.WHITE);
                     novrp.setTextColor(Color.WHITE);
                     dicrp.setTextColor(Color.WHITE);
-                    fabFavorite.setVisibility(View.VISIBLE);
                 } else {
-                    Toast.makeText(getActivity(), "Not Found!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Not Found!", Toast.LENGTH_LONG).show();
                 }
             } else {
-                Toast.makeText(getActivity(), "Wrong Format!\nEnter again please!  ", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Wrong Format!\nEnter again please!  ", Toast.LENGTH_LONG).show();
             }
             return show;
         } catch (Exception e) {
             Log.e(null, "ERROR Payment_schedule Search: " + e.getMessage());
             return null;
         }
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.fabFavorite:
-                Log.e("ruc number", ruc);
-                if(objSqlite.existRuc(ruc)<=0){
-                    final FavoriteDialog dialog = new FavoriteDialog(getActivity(), ruc);
-                    dialog.show();
-                    dialog.setInterfaceFavorite(new FavoriteDialog.InterfaceFavorite() {
-                        @Override
-                        public void getFavorite(String tempRuc, String tempCompany) {
-                            objSqlite.insertHistory(tempRuc,tempCompany,"10 Abr",1);
-                            dialog.dismiss();
-                        }
-                    });
-                }else{
-                    Toast.makeText(getActivity(), R.string.ruc_exist, Toast.LENGTH_SHORT).show();
-                }
-
-                break;
-            case R.id.buttonSearchRuc:
-                ruc = editTextRuc.getText().toString();
-                if (ruc.length() == 11) {
-                    contentResult.setVisibility(View.VISIBLE);
-                    RUC.setText(ruc);
-                    Search(ruc);
-                    historyRucs.addRuc(ruc);
-                    InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    inputMethodManager.hideSoftInputFromWindow(editTextRuc.getWindowToken(), 0);
-                    preferencesUtil.setHistoryRucs(historyRucs);
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, historyRucs.getRucs());
-                    editTextRuc.setAdapter(adapter);
-                } else {
-                    Toast.makeText(getActivity(), "Formato incorrecto!!", Toast.LENGTH_LONG).show();
-                    contentResult.setVisibility(View.GONE);
-                }
-                break;
-        }
-
     }
 
 }

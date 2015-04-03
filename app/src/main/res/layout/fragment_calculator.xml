@@ -121,13 +121,10 @@
                     android:layout_marginRight="2dp"
                     android:background="@drawable/selector_edt"
                     android:textColor="@color/white" />
-                <!--
-                android:textColor="@color/white"
-                android:background="@drawable/selector_edt"/>
-                -->
+
                 <Spinner
                     android:textSize="17dp"
-                    android:layout_weight="2"
+                    android:layout_weight="4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:id="@+id/spnIgv"
@@ -156,14 +153,7 @@
                     android:layout_marginRight="15dp"
                     android:background="@drawable/selector_edt"
                     android:textColor="@color/white" />
-                <!--
-                android:textColor="@color/white"
-                android:background="@drawable/selector_edt"/>
-                -->
-                <!--
-                android:textColor="@color/white"
-                android:background="@drawable/selector_edt"/>
-                -->
+
             </LinearLayout>
 
         </LinearLayout>

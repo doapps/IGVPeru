@@ -243,4 +243,15 @@ public class OpenHelper extends SQLiteOpenHelper {
         db.update("history", values, "_id" + "=?", new String[]{id});
     }
 
+    public int existRuc(String ruc) {
+        int temp_count = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT count(*) FROM history WHERE ruc="+ruc,null);
+        while (c.moveToNext()) {
+            temp_count = c.getInt(0);
+        }
+        c.close();
+        db.close();
+        return temp_count;
+    }
 }

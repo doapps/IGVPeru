@@ -52,6 +52,11 @@
             android:label="@string/title_activity_payment__schedule" >
         </activity>
 
+        <activity android:name=".activities.FavoriteActivity"
+            android:label="@string/title_activity_favorite"
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".activities.MainContent"></activity>
+
         <!-- Push Notification -->
         <service android:name="com.parse.PushService" />
 

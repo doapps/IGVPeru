@@ -1,5 +1,6 @@
 package me.doapps.igvperu.fragments;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +14,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import me.doapps.igvperu.activities.FavoriteActivity;
+import me.doapps.igvperu.activities.MainContent;
 import me.doapps.igvperu.adapters.HistoryAdapter;
 import me.doapps.igvperu.R;
 import me.doapps.igvperu.model.History_DTO;
@@ -42,6 +45,11 @@ public class HistoryFragment extends Fragment implements AdapterView.OnItemClick
         super.onActivityCreated(savedInstanceState);
 
         listHistory.setOnItemClickListener(this);
+        updateHistory();
+
+    }
+
+    public void updateHistory(){
         objSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 3);
         Cursor cursor = objSqlite.selectHistory();
         history_dtos = new ArrayList<>();
@@ -54,12 +62,17 @@ public class HistoryFragment extends Fragment implements AdapterView.OnItemClick
         }
 
         listHistory.setAdapter(new HistoryAdapter(history_dtos, getActivity()));
-
     }
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         History_DTO history_dto = (History_DTO) parent.getAdapter().getItem(position);
-        Log.e("puta", history_dto.getRucNumber());
+        Log.e("ruc selected", history_dto.getRucNumber());
+        Intent intent = new Intent(getActivity(), FavoriteActivity.class);
+        intent.putExtra("ruc", history_dto.getRucNumber());
+        intent.putExtra("razon", history_dto.getCompanyName());
+        ((MainContent)getActivity()).startActivity(intent);
     }
+
+
+
 }

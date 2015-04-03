@@ -5,10 +5,13 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Acerca de</string>
     <string name="action_share">Share</string>
-    <string name="title_activity_main_content">Peru</string>
-    <string name="title_activity_about">Acerca de</string>
+
+    <string name="title_activity_main_content">Perú</string>
+    <string name="title_activity_about">Acerca de IGV Perú</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_cronograma__pago">Cronograma_Pago</string>
+    <string name="title_activity_favorite">RUC</string>
+
     <string name="ruc">RUC</string>
     <string name="title_activity_payment__schedule">Payment_Schedule</string>
     <string name="buscar">BUSCAR</string>
@@ -22,6 +25,9 @@
     <string name="total">TOTAL</string>
     <string name="description_link">Ver cronograma oficial SUNAT</string>
     <string name="link">http://www.sunat.gob.pe/cl-ti-itcronobligme/fvS01Alias</string>
+
+    <!-- Fragment Schedule -->
+    <string name="ruc_exist">RUC ya existe en su historial</string>
 
     <!-- item history -->
     <string name="company_name">Empresa</string>
