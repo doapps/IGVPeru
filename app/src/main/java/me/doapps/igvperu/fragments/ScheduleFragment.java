@@ -133,7 +133,7 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
         preferencesUtil = new PreferencesUtil(getActivity());
         historyRucs = preferencesUtil.getHistoryRucs();
-        objSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 3);
+        objSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 4);
 
         //try {
 

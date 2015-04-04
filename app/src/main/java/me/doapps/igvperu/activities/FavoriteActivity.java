@@ -161,7 +161,7 @@ public class FavoriteActivity extends ActionBarActivity {
 
         preferencesUtil = new PreferencesUtil(this);
         historyRucs = preferencesUtil.getHistoryRucs();
-        objSqlite = new OpenHelper(this, "IGVPeru", null, 3);
+        objSqlite = new OpenHelper(this, "IGVPeru", null, 4);
 
         //try {
 

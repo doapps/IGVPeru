@@ -50,7 +50,7 @@ public class HistoryFragment extends Fragment implements AdapterView.OnItemClick
     }
 
     public void updateHistory(){
-        objSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 3);
+        objSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 4);
         Cursor cursor = objSqlite.selectHistory();
         history_dtos = new ArrayList<>();
         if (cursor.moveToFirst()) {
