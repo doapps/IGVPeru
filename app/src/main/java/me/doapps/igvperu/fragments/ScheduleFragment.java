@@ -93,7 +93,7 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
         f9 = (TableRow) view.findViewById(R.id.rowSep);
         f10 = (TableRow) view.findViewById(R.id.rowOct);
         f11 = (TableRow) view.findViewById(R.id.rowNov);
-        f11 = (TableRow) view.findViewById(R.id.rowDic);
+        f12 = (TableRow) view.findViewById(R.id.rowDic);
 
         RUC = (TextView) view.findViewById(R.id.textViewSearchRuc);
         period01 = (TextView) view.findViewById(R.id.period01);
@@ -156,6 +156,7 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
         buttonSearchRuc.setOnClickListener(this);
 
         String month = sdf.format(new Date());
+        Log.e("MONTH", month);
 
         if (month.equals("01")) {
             f1.setBackgroundColor(getResources().getColor(R.color.red_800));
