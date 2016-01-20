@@ -1,32 +1,33 @@
 package me.doapps.igvperu.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.shamanland.fab.FloatingActionButton;
-
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import me.doapps.igvperu.R;
-import me.doapps.igvperu.dialogs.FavoriteDialog;
+import me.doapps.igvperu.activities.MainActivity;
 import me.doapps.igvperu.model.ArrayRucs;
 import me.doapps.igvperu.model.OpenHelper;
 import me.doapps.igvperu.utils.PreferencesUtil;
@@ -36,9 +37,11 @@ import me.doapps.igvperu.utils.UtilFonts;
  * Created by jonathan on 13/01/2015.
  */
 public class ScheduleFragment extends Fragment implements View.OnClickListener {
-    private FloatingActionButton fabFavorite;
-    LinearLayout contentResult;
-    Button buttonSearchRuc;
+
+    private final String TAG = ScheduleFragment.class.getSimpleName();
+    ScrollView scrollViewResult;
+    LinearLayout linearLayoutSearch, linearLayoutLink;
+    Button buttonSearchRuc, buttonTryAgain, buttonSaveRuc;
     OpenHelper objSqlite;
     TextView RUC, period01, period02, period03, period04, period05, period06, period07, period08, period09, period10, period11, period12,
             enerp, febrp, marrp,
@@ -48,12 +51,10 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
             textViewLink;
     SimpleDateFormat sdf = new SimpleDateFormat("MM");
     TableRow f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12;
-    AutoCompleteTextView editTextRuc;
-    private TextView txt_cronograma;
-    private TextView txt_ruc_buscado;
-    private TextView txt_ruc_mostrado;
-    private TextView txt_periodo;
-    private TextView txt_fecha_regular;
+    AutoCompleteTextView autoCompleteTextViewRuc;
+    private EditText editTextRucSearch, editTextRucShow;
+    private TextView textViewPeriod;
+    private TextView textViewRegularDate;
     PreferencesUtil preferencesUtil;
 
     private String ruc;
@@ -67,20 +68,13 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_schedule, container, false);
 
-        fabFavorite = (FloatingActionButton)view.findViewById(R.id.fabFavorite);
-        buttonSearchRuc = (Button) view.findViewById(R.id.buttonSearchRuc);
+        buttonSearchRuc = (Button) view.findViewById(R.id.button_search_ruc);
+        buttonTryAgain = (Button) view.findViewById(R.id.button_try_again);
+        buttonSaveRuc = (Button) view.findViewById(R.id.button_save_ruc);
 
-        txt_cronograma = (TextView) view.findViewById(R.id.txt_cronograma);
-        txt_ruc_buscado = (TextView) view.findViewById(R.id.txt_ruc_buscado);
-        txt_ruc_mostrado = (TextView) view.findViewById(R.id.textViewSearchRuc);
-        txt_periodo = (TextView) view.findViewById(R.id.txt_periodo);
-        txt_fecha_regular = (TextView) view.findViewById(R.id.txt_fecha_regular);
-
-        txt_cronograma.setTypeface(UtilFonts.setLatoBolt(getActivity()));
-        txt_ruc_buscado.setTypeface(UtilFonts.setLatoReg(getActivity()));
-        txt_ruc_mostrado.setTypeface(UtilFonts.setLatoReg(getActivity()));
-        txt_periodo.setTypeface(UtilFonts.setLatoReg(getActivity()));
-        txt_fecha_regular.setTypeface(UtilFonts.setLatoReg(getActivity()));
+        editTextRucShow = (EditText) view.findViewById(R.id.text_view_search_ruc);
+        textViewPeriod = (TextView) view.findViewById(R.id.txt_periodo);
+        textViewRegularDate = (TextView) view.findViewById(R.id.txt_fecha_regular);
 
         f1 = (TableRow) view.findViewById(R.id.rowEne);
         f2 = (TableRow) view.findViewById(R.id.rowFeb);
@@ -95,7 +89,6 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
         f11 = (TableRow) view.findViewById(R.id.rowNov);
         f12 = (TableRow) view.findViewById(R.id.rowDic);
 
-        RUC = (TextView) view.findViewById(R.id.textViewSearchRuc);
         period01 = (TextView) view.findViewById(R.id.period01);
         period02 = (TextView) view.findViewById(R.id.period02);
         period03 = (TextView) view.findViewById(R.id.period03);
@@ -120,9 +113,11 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
         octrp = (TextView) view.findViewById(R.id.octrp);
         novrp = (TextView) view.findViewById(R.id.novrp);
         dicrp = (TextView) view.findViewById(R.id.dicrp);
-        contentResult = (LinearLayout) view.findViewById(R.id.contentResult);
-        editTextRuc = (AutoCompleteTextView) view.findViewById(R.id.editTextRuc);
-        textViewLink = (TextView) view.findViewById(R.id.textViewLink);
+        scrollViewResult = (ScrollView) view.findViewById(R.id.contentResult);
+        linearLayoutSearch = (LinearLayout) view.findViewById(R.id.linear_lauoy_search);
+        linearLayoutLink = (LinearLayout) view.findViewById(R.id.linear_layout_link);
+        autoCompleteTextViewRuc = (AutoCompleteTextView) view.findViewById(R.id.autocomplete_ruc);
+        textViewLink = (TextView) view.findViewById(R.id.text_view_link);
         return view;
     }
 
@@ -132,15 +127,53 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         preferencesUtil = new PreferencesUtil(getActivity());
+
+        setupParent(getView());
+
+        textViewLink.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        autoCompleteTextViewRuc.setTypeface(UtilFonts.setLightSourceSansPro(getActivity()));
+        editTextRucShow.setTypeface(UtilFonts.setLightSourceSansPro(getActivity()));
+        textViewPeriod.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        textViewRegularDate.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+
+        buttonSearchRuc.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+
+        period01.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        period02.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        period03.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        period04.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        period05.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        period06.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        period07.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        period08.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        period09.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        period10.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        period11.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        period12.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+
+        enerp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        febrp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        marrp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        abrrp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        mayrp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        junrp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        julrp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        agorp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        seprp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        octrp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        novrp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+        dicrp.setTypeface(UtilFonts.setRegularSourceSansPro(getActivity()));
+
+        buttonTryAgain.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        buttonSaveRuc.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+
         historyRucs = preferencesUtil.getHistoryRucs();
-        objSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 4);
+        objSqlite = ((MainActivity)getActivity()).objSqlite;
 
-        //try {
-
-        contentResult.setVisibility(View.GONE);
+        scrollViewResult.setVisibility(View.GONE);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, historyRucs.getRucs());
-        editTextRuc.setAdapter(adapter);
+        autoCompleteTextViewRuc.setAdapter(adapter);
 
         textViewLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,65 +184,22 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        fabFavorite.setOnClickListener(this);
-
-        buttonSearchRuc.setOnClickListener(this);
-
-        String month = sdf.format(new Date());
-        Log.e("MONTH", month);
-
-        if (month.equals("01")) {
-            f1.setBackgroundColor(getResources().getColor(R.color.red_800));
-        } else {
-            if (month.equals("02")) {
-                f2.setBackgroundColor(getResources().getColor(R.color.red_800));
-            } else {
-                if (month.equals("03")) {
-                    f3.setBackgroundColor(getResources().getColor(R.color.red_800));
+        autoCompleteTextViewRuc.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode == 66){
+                    SearchRuc();
+                    return true;
                 } else {
-                    if (month.equals("04")) {
-                        f4.setBackgroundColor(getResources().getColor(R.color.red_800));
-                    } else {
-                        if (month.equals("05")) {
-                            f5.setBackgroundColor(getResources().getColor(R.color.red_800));
-                        } else {
-                            if (month.equals("06")) {
-                                f6.setBackgroundColor(getResources().getColor(R.color.red_800));
-                            } else {
-                                if (month.equals("07")) {
-                                    f7.setBackgroundColor(getResources().getColor(R.color.red_800));
-                                } else {
-                                    if (month.equals("08")) {
-                                        f8.setBackgroundColor(getResources().getColor(R.color.red_800));
-                                    } else {
-                                        if (month.equals("09")) {
-                                            f9.setBackgroundColor(getResources().getColor(R.color.red_800));
-                                        } else {
-                                            if (month.equals("10")) {
-                                                f10.setBackgroundColor(getResources().getColor(R.color.red_800));
-                                            } else {
-                                                if (month.equals("11")) {
-                                                    f11.setBackgroundColor(getResources().getColor(R.color.red_800));
-                                                } else {
-                                                    if (month.equals("12")) {
-                                                        f12.setBackgroundColor(getResources().getColor(R.color.red_800));
-                                                    } else {
-                                                        Log.e(null, "ERROR: Schedule focus");
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    return false;
                 }
             }
-        }
-        //} catch (Exception e) {
-        //    Log.e(null, "ERROR Payment_Schedule onCreate: " + e.getMessage());
-        //}
+        });
+
+        buttonTryAgain.setOnClickListener(this);
+        buttonSaveRuc.setOnClickListener(this);
+        buttonSearchRuc.setOnClickListener(this);
+        linearLayoutLink.setOnClickListener(this);
     }
 
     public String[] Search(String ruc) {
@@ -230,18 +220,6 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
                     period10.setText(Result[9][0].toString());
                     period11.setText(Result[10][0].toString());
                     period12.setText(Result[11][0].toString());
-                    period01.setTextColor(Color.WHITE);
-                    period02.setTextColor(Color.WHITE);
-                    period03.setTextColor(Color.WHITE);
-                    period04.setTextColor(Color.WHITE);
-                    period05.setTextColor(Color.WHITE);
-                    period06.setTextColor(Color.WHITE);
-                    period07.setTextColor(Color.WHITE);
-                    period08.setTextColor(Color.WHITE);
-                    period09.setTextColor(Color.WHITE);
-                    period10.setTextColor(Color.WHITE);
-                    period11.setTextColor(Color.WHITE);
-                    period12.setTextColor(Color.WHITE);
 
                     enerp.setText(Result[0][1].toString());
                     febrp.setText(Result[1][1].toString());
@@ -255,20 +233,6 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
                     octrp.setText(Result[9][1].toString());
                     novrp.setText(Result[10][1].toString());
                     dicrp.setText(Result[11][1].toString());
-
-                    enerp.setTextColor(Color.WHITE);
-                    febrp.setTextColor(Color.WHITE);
-                    marrp.setTextColor(Color.WHITE);
-                    abrrp.setTextColor(Color.WHITE);
-                    mayrp.setTextColor(Color.WHITE);
-                    junrp.setTextColor(Color.WHITE);
-                    julrp.setTextColor(Color.WHITE);
-                    agorp.setTextColor(Color.WHITE);
-                    seprp.setTextColor(Color.WHITE);
-                    octrp.setTextColor(Color.WHITE);
-                    novrp.setTextColor(Color.WHITE);
-                    dicrp.setTextColor(Color.WHITE);
-                    fabFavorite.setVisibility(View.VISIBLE);
                 } else {
                     Toast.makeText(getActivity(), "Not Found!", Toast.LENGTH_LONG).show();
                 }
@@ -282,45 +246,89 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    protected void setupParent(View view) {
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard();
+                    return false;
+                }
+            });
+        }
+
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupParent(innerView);
+            }
+        }
+    }
+
+    private void hideSoftKeyboard() {
+        try {
+            InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.fabFavorite:
+            case R.id.button_save_ruc:
                 Log.e("ruc number", ruc);
                 if(objSqlite.existRuc(ruc)<=0){
-                    final FavoriteDialog dialog = new FavoriteDialog(getActivity(), ruc);
-                    dialog.show();
-                    dialog.setInterfaceFavorite(new FavoriteDialog.InterfaceFavorite() {
-                        @Override
-                        public void getFavorite(String tempRuc, String tempCompany) {
-                            objSqlite.insertHistory(tempRuc,tempCompany,"10 Abr",1);
-                            dialog.dismiss();
-                        }
-                    });
+                    ((MainActivity) getActivity()).showDialog();
+                    ((MainActivity) getActivity()).setEditTextRucNumber(ruc);
                 }else{
                     Toast.makeText(getActivity(), R.string.ruc_exist, Toast.LENGTH_SHORT).show();
                 }
-
                 break;
-            case R.id.buttonSearchRuc:
-                ruc = editTextRuc.getText().toString();
-                if (ruc.length() == 11) {
-                    contentResult.setVisibility(View.VISIBLE);
-                    RUC.setText(ruc);
-                    Search(ruc);
-                    historyRucs.addRuc(ruc);
-                    InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    inputMethodManager.hideSoftInputFromWindow(editTextRuc.getWindowToken(), 0);
-                    preferencesUtil.setHistoryRucs(historyRucs);
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, historyRucs.getRucs());
-                    editTextRuc.setAdapter(adapter);
-                } else {
-                    Toast.makeText(getActivity(), "Formato incorrecto!!", Toast.LENGTH_LONG).show();
-                    contentResult.setVisibility(View.GONE);
-                }
+            case R.id.button_search_ruc:
+                SearchRuc();
+                break;
+            case R.id.button_try_again:
+                searchAgain();
+                break;
+            case R.id.linear_layout_link:
+                String link = getString(R.string.link);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                startActivity(intent);
+                break;
+            default:
+                Log.e(TAG, "default");
                 break;
         }
 
+    }
+
+    public void searchAgain(){
+        scrollViewResult.setVisibility(View.GONE);
+        linearLayoutSearch.setVisibility(View.VISIBLE);
+        linearLayoutLink.setVisibility(View.VISIBLE);
+    }
+
+    public void SearchRuc(){
+        ruc = autoCompleteTextViewRuc.getText().toString();
+        if (ruc.length() == 11) {
+            scrollViewResult.setVisibility(View.VISIBLE);
+            linearLayoutSearch.setVisibility(View.GONE);
+            linearLayoutLink.setVisibility(View.GONE);
+            editTextRucShow.setText(ruc);
+            autoCompleteTextViewRuc.setText("");
+            Search(ruc);
+            historyRucs.addRuc(ruc);
+            try {
+                InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(autoCompleteTextViewRuc.getWindowToken(), 0);
+            } catch (Exception e){e.printStackTrace();}
+            preferencesUtil.setHistoryRucs(historyRucs);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, historyRucs.getRucs());
+            autoCompleteTextViewRuc.setAdapter(adapter);
+        } else {
+            Toast.makeText(getActivity(), "Formato incorrecto!!", Toast.LENGTH_LONG).show();
+        }
     }
 
 }

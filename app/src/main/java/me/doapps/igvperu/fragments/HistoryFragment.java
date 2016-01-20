@@ -1,42 +1,50 @@
 package me.doapps.igvperu.fragments;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import me.doapps.igvperu.activities.FavoriteActivity;
-import me.doapps.igvperu.activities.MainContent;
+import me.doapps.igvperu.activities.MainActivity;
 import me.doapps.igvperu.adapters.HistoryAdapter;
 import me.doapps.igvperu.R;
 import me.doapps.igvperu.model.History_DTO;
 import me.doapps.igvperu.model.OpenHelper;
+import me.doapps.igvperu.utils.UtilFonts;
 
 /**
  * Created by jonathan on 28/03/2015.
  */
-public class HistoryFragment extends Fragment implements AdapterView.OnItemClickListener {
-    private ListView listHistory;
+public class HistoryFragment extends Fragment {
+
+    private final static String TAG = HistoryFragment.class.getSimpleName();
+    private RecyclerView listHistory;
     private ArrayList<History_DTO> history_dtos;
     private OpenHelper objSqlite;
+    private FrameLayout frameLayout;
+    public History_DTO temp;
+    private RecyclerView.LayoutManager mLayoutManager;
 
-    public static final HistoryFragment newsInstance(){
+    public static final HistoryFragment newsInstance() {
         return new HistoryFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
-        listHistory = (ListView)view.findViewById(R.id.listHistory);
+        listHistory = (RecyclerView) view.findViewById(R.id.listHistory);
+        frameLayout = (FrameLayout) view.findViewById(R.id.frame_layout);
         return view;
     }
 
@@ -44,35 +52,54 @@ public class HistoryFragment extends Fragment implements AdapterView.OnItemClick
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        listHistory.setOnItemClickListener(this);
+//        listHistory.setOnItemClickListener(this);
         updateHistory();
 
     }
 
-    public void updateHistory(){
-        objSqlite = new OpenHelper(getActivity(), "IGVPeru", null, 4);
+    public void refreshHistory() {
+        updateHistory();
+    }
+
+    public void updateHistory() {
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        objSqlite = ((MainActivity) getActivity()).objSqlite;
         Cursor cursor = objSqlite.selectHistory();
         history_dtos = new ArrayList<>();
-        if (cursor.moveToFirst()) {
-            do {
-                String tempCompany = cursor.getString(1);
-                String tempRuc = cursor.getString(0);
-                history_dtos.add(new History_DTO(tempCompany, tempRuc, "Mar-15", "22 Abr"));
-            } while (cursor.moveToNext());
+
+        while (cursor.moveToNext()) {
+            String tempCompany = cursor.getString(2);
+            String tempRuc = cursor.getString(1);
+            String id = cursor.getString(0);
+            history_dtos.add(new History_DTO(id, tempCompany, tempRuc, "Mar-15", "22 Abr"));
         }
 
-        listHistory.setAdapter(new HistoryAdapter(history_dtos, getActivity()));
-    }
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        History_DTO history_dto = (History_DTO) parent.getAdapter().getItem(position);
-        Log.e("ruc selected", history_dto.getRucNumber());
-        Intent intent = new Intent(getActivity(), FavoriteActivity.class);
-        intent.putExtra("ruc", history_dto.getRucNumber());
-        intent.putExtra("razon", history_dto.getCompanyName());
-        ((MainContent)getActivity()).startActivity(intent);
-    }
+        final HistoryAdapter historyAdapter = new HistoryAdapter(history_dtos, getActivity());
+        historyAdapter.setInterfaceDelete(new HistoryAdapter.InterfaceDelete() {
+                                              @Override
+                                              public void Success(final History_DTO history_dto) {
+                                                  Snackbar snackbar = Snackbar
+                                                          .make(frameLayout, "Favorito Eliminado", Snackbar.LENGTH_LONG)
+                                                          .setDuration(Snackbar.LENGTH_LONG)
+                                                          .setAction("Restablecer", new View.OnClickListener() {
+                                                              @Override
+                                                              public void onClick(View view) {
+                                                                  ((MainActivity) getActivity()).objSqlite.updateHistory(history_dto.getId(), "1");
+                                                                  historyAdapter.addHistory(history_dto);
+                                                              }
+                                                          });
 
+                                                  snackbar.show();
+                                                  View view = snackbar.getView();
+                                                  TextView tv = (TextView) view.findViewById(android.support.design.R.id.snackbar_action);
+                                                  tv.setTextColor(ContextCompat.getColor(getActivity(), R.color.white));
+                                                  tv.setTypeface(UtilFonts.setBoldSourceSansPro(getActivity()));
+                                              }
+                                          }
 
+        );
+        listHistory.setAdapter(historyAdapter);
+        listHistory.setLayoutManager(mLayoutManager);
+    }
 
 }

@@ -5,6 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Acerca de</string>
     <string name="action_share">Share</string>
+    <string name="action_info">Info</string>
 
     <string name="title_activity_main_content">Perú</string>
     <string name="title_activity_about">Acerca de IGV Perú</string>
@@ -12,22 +13,24 @@
     <string name="title_activity_cronograma__pago">Cronograma_Pago</string>
     <string name="title_activity_favorite">RUC</string>
 
-    <string name="ruc">RUC</string>
+    <string name="ruc">Número de RUC</string>
     <string name="title_activity_payment__schedule">Payment_Schedule</string>
     <string name="buscar">BUSCAR</string>
     <string name="cronograma_pago">CRONOGRAMA DE PAGO</string>
     <string name="search_ruc">RUC buscado:</string>
-    <string name="period">Periodo</string>
-    <string name="regular_date">Fecha Regular</string>
+    <string name="period">PERIODO</string>
+    <string name="regular_date">FECHA REGULAR</string>
     <string name="special_date">Fecha Especial</string>
     <string name="sub_total">SUB TOTAL</string>
     <string name="igv">IGV</string>
     <string name="total">TOTAL</string>
     <string name="description_link">Ver cronograma oficial SUNAT</string>
-    <string name="link">http://www.sunat.gob.pe/cl-ti-itcronobligme/fvS01Alias</string>
+    <string name="link">http://www.sunat.gob.pe/orientacion/cronogramas/</string>
 
     <!-- Fragment Schedule -->
     <string name="ruc_exist">RUC ya existe en su historial</string>
+    <string name="fs_try_again">"VOLVER A BUSCAR"</string>
+    <string name="fs_save_ruc">"GUARDAR RUC"</string>
 
     <!-- item history -->
     <string name="company_name">Empresa</string>
@@ -39,4 +42,11 @@
     <!-- Parse Keys -->
     <string name="application_id">zO8aCYwfgi9dHsXOftGUiWAkHlulRR4yUXDMCLPi</string>
     <string name="client_key">XAZVmJ4Lcm2M0m1mO639HeM4fnvKhGWq3OZr4oZS</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- shareApp -->
+    <string name="share_text">Text</string>
+    <string name="share_url">Url</string>
+    <string name="share_share"></string>
+
 </resources>

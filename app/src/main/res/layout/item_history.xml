@@ -1,66 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_width="match_parent"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:paddingTop="8dp">
 
     <android.support.v7.widget.CardView
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardElevation="2dp"
-        card_view:cardCornerRadius="2dp">
+        android:orientation="vertical"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="2dp">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="5dp">
+            android:background="@color/baseRed"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txtCompany"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:layout_marginBottom="10dp"
-                android:textAllCaps="true"
-                android:text="@string/company_name" />
+                android:layout_height="32dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-            <LinearLayout
+                <TextView
+                    android:id="@+id/txtCompany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/company_name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_gravity="left|center_vertical"/>
+
+                <ImageView
+                    android:id="@+id/image_view_delete"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_delete"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="8dp"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_layout_item"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
+                android:background="@color/white"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_weight="0.5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="RUC: " />
-
-                <TextView
-                    android:layout_weight="1"
                     android:id="@+id/txtRuc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:text="@string/ruc_number" />
-
-                <TextView
-                    android:visibility="gone"
-                    android:layout_weight="1"
-                    android:id="@+id/txtDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:gravity="right"
-                    android:text="@string/date" />
-            </LinearLayout>
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/ruc_number"
+                    android:textSize="32sp"
+                    android:clickable="false"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_link"
+                    android:clickable="false"/>
+
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

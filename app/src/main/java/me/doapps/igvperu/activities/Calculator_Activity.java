@@ -2,6 +2,7 @@ package me.doapps.igvperu.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -17,7 +18,7 @@ import me.doapps.igvperu.R;
 /**
  * Created by Bryam on 13/01/2015.
  */
-public class Calculator_Activity extends ActionBarActivity implements AdapterView.OnItemSelectedListener, TextWatcher {
+public class Calculator_Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, TextWatcher {
 
     private Spinner spnIgv;
     private ArrayList<String> igvs;

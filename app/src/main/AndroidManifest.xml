@@ -12,15 +12,16 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
-        android:protectionLevel="signature"
-        android:name="me.doapps.igvperu.permission.C2D_MESSAGE" />
+        android:name="me.doapps.igvperu.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
     <uses-permission android:name="me.doapps.igvperu.permission.C2D_MESSAGE" />
 
     <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
         android:name=".application.Application"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".activities.SplashActivity"
@@ -34,33 +35,28 @@
         <activity
             android:name=".activities.MainContent"
             android:label="@string/title_activity_main_content"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".activities.ActivityAbout"
             android:label="@string/title_activity_about"
-            android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".activities.MainContent"
-            >
-        </activity>
-        <activity
-            android:name=".activities.PaymentActivity"
-            android:label="@string/title_activity_payment__schedule" >
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".activities.Calculator_Activity"
             android:label="@string/title_activity_payment__schedule" >
         </activity>
-
-        <activity android:name=".activities.FavoriteActivity"
+        <activity
+            android:name=".activities.FavoriteActivity"
             android:label="@string/title_activity_favorite"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName=".activities.MainContent"></activity>
+            android:parentActivityName=".activities.MainContent"
+            android:windowSoftInputMode="stateHidden" />
 
         <!-- Push Notification -->
         <service android:name="com.parse.PushService" />
 
-        <receiver android:name="com.parse.ParseBroadcastReceiver">
+        <receiver android:name="com.parse.ParseBroadcastReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
@@ -68,25 +64,32 @@
         </receiver>
         <receiver
             android:name="com.parse.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <!--
-                  IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name.
-                -->
+                <!-- IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name. -->
                 <category android:name="me.doapps.igvperu" />
             </intent-filter>
         </receiver>
         <receiver
             android:name=".broadcast.PushReceiver"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.parse.push.intent.RECEIVE" />
                 <action android:name="com.parse.push.intent.DELETE" />
                 <action android:name="com.parse.push.intent.OPEN" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" >
+
+            <!-- android:windowSoftInputMode="adjustPan|stateAlwaysHidden"> -->
+        </activity>
     </application>
 
 </manifest>

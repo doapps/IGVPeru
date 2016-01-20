@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="colorPrimary">#055096</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">@color/black</color>
+    <color name="windowBackground">#ffffff</color>
+    <color name="colorDarkGreen">#197592</color>
+    <color name="colorLighGreen">#19AF92</color>
+    <color name="open_diaog_background">#99000000</color>
+
+    <!--<color name="windowBackground">#ffffff</color>-->
+    <color name="baseRed">#FC1212</color>
+    <color name="baseRedPressed">#bd0000</color>
+    <color name="transparent">#ffffffff</color>
     <color name="background_action_bar">#94C7B6</color>
     <color name="icons">#D3643B</color>
 

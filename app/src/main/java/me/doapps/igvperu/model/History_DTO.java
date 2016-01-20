@@ -4,6 +4,8 @@ package me.doapps.igvperu.model;
  * Created by jonathan on 28/03/2015.
  */
 public class History_DTO {
+
+    private String id;
     private String companyName;
     private String rucNumber;
     private String period;
@@ -11,11 +13,20 @@ public class History_DTO {
 
     public History_DTO(){}
 
-    public History_DTO(String companyName, String rucNumber, String period, String date) {
+    public History_DTO(String id, String companyName, String rucNumber, String period, String date) {
+        this.id = id;
         this.companyName = companyName;
         this.rucNumber = rucNumber;
         this.period = period;
         this.date = date;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCompanyName() {

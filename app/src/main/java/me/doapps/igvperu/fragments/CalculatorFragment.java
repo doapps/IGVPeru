@@ -1,5 +1,6 @@
 package me.doapps.igvperu.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,10 +8,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -18,9 +20,11 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import me.doapps.igvperu.R;
+import me.doapps.igvperu.adapters.MySpinnerAdapter;
 import me.doapps.igvperu.utils.UtilFonts;
 
 /**
@@ -28,7 +32,7 @@ import me.doapps.igvperu.utils.UtilFonts;
  */
 public class CalculatorFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     private Spinner spnIgv;
-    private ArrayList<String> igvs;
+    private List<String> igvs;
     private EditText pbase;
     private EditText pigv;
     private EditText ptotal;
@@ -59,33 +63,38 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
         super.onActivityCreated(savedInstanceState);
 
         /*textview*/
-
         txt_sub_total = (TextView) getView().findViewById(R.id.txt_sub_total);
         txt_igv = (TextView) getView().findViewById(R.id.txt_igv);
         txt_total = (TextView) getView().findViewById(R.id.txt_total);
 
-        txt_sub_total.setTypeface(UtilFonts.setLatoBolt(getActivity()));
-        txt_igv.setTypeface(UtilFonts.setLatoBolt(getActivity()));
-        txt_total.setTypeface(UtilFonts.setLatoBolt(getActivity()));
+        txt_sub_total.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        txt_igv.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+        txt_total.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
 
         /*spinner*/
         spnIgv = (Spinner) getView().findViewById(R.id.spnIgv);
+
         igvs = new ArrayList<String>();
         igvs.add("18%");
         igvs.add("19%");
 
-        String[] igvs = new String[]{"18%", "19%"};
+//        String[] igvs = new String[]{"18%", "19%"};
 
+        MySpinnerAdapter adapter = new MySpinnerAdapter(getContext(),android.R.layout.simple_list_item_1, igvs);
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, igvs);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spnIgv.setAdapter(dataAdapter);
+//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, igvs);
+//        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnIgv.setAdapter(adapter);
         spnIgv.setOnItemSelectedListener(this);
 
         pbase = (EditText) getView().findViewById(R.id.pbase);
         pigv = (EditText) getView().findViewById(R.id.pigv);
         ptotal = (EditText) getView().findViewById(R.id.ptotal);
+
+        pbase.setTypeface(UtilFonts.setLightSourceSansPro(getActivity()));
+        pigv.setTypeface(UtilFonts.setLightSourceSansPro(getActivity()));
+        ptotal.setTypeface(UtilFonts.setLightSourceSansPro(getActivity()));
 
         /*PRECIO BASE*/
         pbase.addTextChangedListener(new TextWatcher() {
@@ -136,7 +145,6 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
 
             @Override
             public void afterTextChanged(Editable s) {
-
                 if (s.length() > 0 && pigv.isFocused()) {
                     try {
                         format(pigv, s.toString());
@@ -190,6 +198,35 @@ public class CalculatorFragment extends Fragment implements AdapterView.OnItemSe
                 }
             }
         });
+
+        setupParent(getView());
+    }
+
+    protected void setupParent(View view) {
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard();
+                    return false;
+                }
+            });
+        }
+
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupParent(innerView);
+            }
+        }
+    }
+
+    private void hideSoftKeyboard() {
+        try {
+            InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void format(EditText et, String textInput) {

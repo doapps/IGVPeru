@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +19,7 @@ import me.doapps.igvperu.R;
 import me.doapps.igvperu.fragments.HistoryFragment;
 import me.doapps.igvperu.fragments.ScheduleFragment;
 
-public class MainContent extends ActionBarActivity implements ViewPager.OnPageChangeListener {
+public class MainContent extends AppCompatActivity implements ViewPager.OnPageChangeListener {
 
     public ViewPager mPager;
     private TabAdapter mAdapter;

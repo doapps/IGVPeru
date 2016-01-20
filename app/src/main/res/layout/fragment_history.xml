@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_500">
+    android:background="@color/white"
+    android:id="@+id/frame_layout"
+    android:theme="@style/ThemeRed">
 
-    <ListView
+    <ImageView
+        android:id="@+id/imageDoapps"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="left|bottom"
+        android:layout_marginBottom="-26dp"
+        android:layout_marginLeft="12dp"
+        android:src="@drawable/ic_watermaker_doapps_dark" />
+
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/listHistory"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        android:layout_marginBottom="8dp"></ListView>
+        android:layout_marginBottom="8dp"/>
 
-</LinearLayout>
+</FrameLayout>
