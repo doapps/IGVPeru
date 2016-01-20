@@ -23,7 +23,9 @@
             android:textColorHint="@color/white"
             android:textCursorDrawable="@drawable/selector_cursor_white"
             android:singleLine="true"
-            android:imeOptions="actionNext"/>
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="11"/>
 
     </android.support.design.widget.TextInputLayout>
 

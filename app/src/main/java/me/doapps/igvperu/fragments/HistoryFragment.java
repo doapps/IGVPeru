@@ -81,7 +81,7 @@ public class HistoryFragment extends Fragment {
                                                   Snackbar snackbar = Snackbar
                                                           .make(frameLayout, "Favorito Eliminado", Snackbar.LENGTH_LONG)
                                                           .setDuration(Snackbar.LENGTH_LONG)
-                                                          .setAction("Restablecer", new View.OnClickListener() {
+                                                          .setAction("DESHACER", new View.OnClickListener() {
                                                               @Override
                                                               public void onClick(View view) {
                                                                   ((MainActivity) getActivity()).objSqlite.updateHistory(history_dto.getId(), "1");

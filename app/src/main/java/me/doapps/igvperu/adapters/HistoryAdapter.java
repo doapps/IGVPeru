@@ -16,6 +16,7 @@ import java.util.List;
 import me.doapps.igvperu.R;
 import me.doapps.igvperu.activities.FavoriteActivity;
 import me.doapps.igvperu.activities.MainActivity;
+import me.doapps.igvperu.fragments.ScheduleFragment;
 import me.doapps.igvperu.model.History_DTO;
 import me.doapps.igvperu.utils.UtilFonts;
 
@@ -61,10 +62,14 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.CardsVie
             holder.frameLayoutItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, FavoriteActivity.class);
-                    intent.putExtra("ruc", history_dtos.get(position).getRucNumber());
-                    intent.putExtra("razon", history_dtos.get(position).getCompanyName());
-                    context.startActivity(intent);
+                    ((MainActivity) context).changeTab(1);
+                    ScheduleFragment.autoCompleteTextViewRuc.setText(history_dtos.get(position).getRucNumber());
+                    ScheduleFragment.buttonSearchRuc.performClick();
+
+//                    Intent intent = new Intent(context, FavoriteActivity.class);
+//                    intent.putExtra("ruc", history_dtos.get(position).getRucNumber());
+//                    intent.putExtra("razon", history_dtos.get(position).getCompanyName());
+//                    context.startActivity(intent);
                 }
             });
         } catch (Exception e) {

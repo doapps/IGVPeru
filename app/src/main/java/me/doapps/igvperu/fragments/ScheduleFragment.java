@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -41,7 +42,8 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
     private final String TAG = ScheduleFragment.class.getSimpleName();
     ScrollView scrollViewResult;
     LinearLayout linearLayoutSearch, linearLayoutLink;
-    Button buttonSearchRuc, buttonTryAgain, buttonSaveRuc;
+    public static Button buttonSearchRuc;
+    Button buttonTryAgain, buttonSaveRuc;
     OpenHelper objSqlite;
     TextView RUC, period01, period02, period03, period04, period05, period06, period07, period08, period09, period10, period11, period12,
             enerp, febrp, marrp,
@@ -51,11 +53,12 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
             textViewLink;
     SimpleDateFormat sdf = new SimpleDateFormat("MM");
     TableRow f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12;
-    AutoCompleteTextView autoCompleteTextViewRuc;
+    public static AutoCompleteTextView autoCompleteTextViewRuc;
     private EditText editTextRucSearch, editTextRucShow;
     private TextView textViewPeriod;
     private TextView textViewRegularDate;
     PreferencesUtil preferencesUtil;
+    TextInputLayout textInputLayout;
 
     private String ruc;
     private ArrayRucs historyRucs = new ArrayRucs();
@@ -75,6 +78,8 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
         editTextRucShow = (EditText) view.findViewById(R.id.text_view_search_ruc);
         textViewPeriod = (TextView) view.findViewById(R.id.txt_periodo);
         textViewRegularDate = (TextView) view.findViewById(R.id.txt_fecha_regular);
+
+        textInputLayout = (TextInputLayout) view.findViewById(R.id.text_input_layout_ruc);
 
         f1 = (TableRow) view.findViewById(R.id.rowEne);
         f2 = (TableRow) view.findViewById(R.id.rowFeb);
@@ -121,8 +126,6 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -137,6 +140,8 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
         textViewRegularDate.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
 
         buttonSearchRuc.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
+
+        textInputLayout.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
 
         period01.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
         period02.setTypeface(UtilFonts.setSemiBoldSourceSans(getActivity()));
@@ -200,6 +205,7 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener {
         buttonSaveRuc.setOnClickListener(this);
         buttonSearchRuc.setOnClickListener(this);
         linearLayoutLink.setOnClickListener(this);
+
     }
 
     public String[] Search(String ruc) {

@@ -632,7 +632,8 @@
                                 android:layout_weight="3"
                                 android:background="@drawable/selector_btn_red"
                                 android:text="@string/fs_try_again"
-                                android:textColor="@color/white" />
+                                android:textColor="@color/white"
+                                android:singleLine="true"/>
 
                             <Button
                                 android:id="@+id/button_save_ruc"
@@ -643,7 +644,8 @@
                                 android:layout_weight="3"
                                 android:background="@drawable/selector_btn_red"
                                 android:text="@string/fs_save_ruc"
-                                android:textColor="@color/white" />
+                                android:textColor="@color/white"
+                                android:singleLine="true"/>
 
 
                         </LinearLayout>

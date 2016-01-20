@@ -45,8 +45,8 @@
     <string name="title_activity_main">MainActivity</string>
 
     <!-- shareApp -->
-    <string name="share_text">Text</string>
-    <string name="share_url">Url</string>
+    <string name="share_text">Te invito descargar IGV Perú</string>
+    <string name="share_url">"https://play.google.com/store/apps/details?id=me.doapps.igvperu"</string>
     <string name="share_share"></string>
 
 </resources>

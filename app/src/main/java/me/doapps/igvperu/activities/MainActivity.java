@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String rucNumber = editTextRucNumber.getText().toString();
                 String tempCompany = editTextCompanyName.getText().toString();
-                if (rucNumber.equals("")) {
-                    Toast.makeText(MainActivity.this, "Ingrese un número de RUC", Toast.LENGTH_SHORT).show();
+                if (rucNumber.equals("") && rucNumber.length() == 11) {
+                    Toast.makeText(MainActivity.this, "Ingrese un número de RUC válido", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (tempCompany.equals("")) {
